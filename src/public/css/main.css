@@ -1,0 +1,138 @@
+body {
+    background: #1488cc;
+    background: url(../img/bg3.jpg) center top;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+/* estilos del login */
+
+.login-box {
+    width: 350px;
+    height: 350px;
+    background: #fff;
+    color: #000;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 60px 30px;
+    box-shadow: 0px 0px 3px #848484;
+}
+
+.login-box .logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px #848484;
+    position: absolute;
+    top: -70px;
+    left: calc(50% - 50px);
+}
+
+.login-box h1 {
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-box input {
+    margin-top: 0px;
+    width: 90%; 
+    margin-bottom: 20px;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+}
+
+.login-box button {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1488cc;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* estilos del registro */
+
+.signup-box {
+    width: 400px;
+    height: 450px;
+    background: #fff;
+    color: #000;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 10px 30px;
+    box-shadow: 0px 0px 3px #848484;
+}
+
+.signup-box h1 {
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.signup-box label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.signup-box input {
+    margin-top: 0px;
+    width: 90%; 
+    margin-bottom: 10px;
+}
+
+.signup-box input[type="email"],
+.signup-box input[type="password"],
+.signup-box input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+}
+
+.signup-box button {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1488cc;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+

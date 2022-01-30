@@ -1,0 +1,25 @@
+<div class="signup-box">
+    
+    <h1>Registra una Nueva Cuenta</h1>
+    
+    <form action="/users/signup" method="post">
+
+        <label for="username">INGRESA TU NOMBRE:</label>
+        <input type="text" class="form-control" name="name" value="{{name}}">
+
+        <!-- username -->
+        <label for="username">INGRESA TU EMAIL:</label>
+        <input type="email" class="form-control" name="email"  value="{{email}}">
+
+        <!-- password -->
+        <label for="password">INGRESA TU CONTRASEÑA:</label>
+        <input type="password" class="form-control" name="password" value="{{password}}">
+
+        <label for="password">CONFIRMA TU CONTRASEÑA:</label>
+        <input type="password" class="form-control" name="confirm_password" value="{{confirm_password}}">
+        
+        <button class="btn btn-primary btn-block mt-6">
+            Registrarse
+        </button>
+    </form>
+</div>
