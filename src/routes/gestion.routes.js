@@ -58,4 +58,19 @@ router.delete('/addPaciente/delete/:id', isAuthenticated, deletePac);
 //mostrar historial
 router.get('/historial/:id', isAuthenticated);
 
+//mostrar horarios
+gestionCtrl.renderHrc = async (req, res) => {
+    res.render('gestion/horarios');
+};
+
+//mostrar dias
+gestionCtrl.renderDia = async (req, res) => {
+    res.render('gestion/dias');
+};
+
+//mostrar doctores
+gestionCtrl.renderDoc = async (req, res) => {
+    res.render('gestion/doctores');
+};
+
 module.exports = router
