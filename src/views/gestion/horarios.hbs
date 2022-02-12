@@ -1,0 +1,166 @@
+<!-- titulo y filtros de busqueda  -->
+        <div id="especialidades">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                            <h3 class="font-weight-bold">Lista de Horarios</h3>
+                        </div>
+
+
+
+                    <!-- {{!-- ventana modal para editar --}} -->
+
+
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title font-weight-bold">
+                                        Editar Horario
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="alert alert-danger d-none" role="alert" id="modal-alert">
+                                        A simple danger alert—check it out!
+                                    </div>
+                                <form>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="time">Hora Inicio</label>
+                                              <input type="time" id="time" class="form-control ">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="time">Hora Fin</label>
+                                              <input type="time" id="time" class="form-control ">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label class="m-sm-0"> Cupos</label>
+                                            <input type="text" name="title" id="title" class="form-control " placeholder="">
+                                        </div>
+                                    </div>
+
+                                   
+
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        cerrar
+                                    </button>
+                                    <button type="button" class="btn btn-info" id="modal-btn">
+                                        guardar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <main>
+                        <div class="container pt-3">
+                            <div class="alert alert-danger d-none" role="alert" id="alert">
+                                A simple danger alert—check it out!
+                            </div>
+
+                            <!-- añadir especialidad -->
+
+                            <div>
+                                <form action="/notes/new-note" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-3 align-items-center mb-3">
+                                              <label for="time">Hora Inicio</label>
+                                              <input type="time" id="time" class="form-control ml-sm-2">
+                                        </div>
+                                        <div class="col-sm-3 align-items-center mb-3">
+                                            <label for="time">Hora Fin</label>
+                                              <input type="time" id="time" class="form-control ml-sm-2">
+                                        </div>
+                                  
+                                            <div class="col-sm-3 align-items-center mb-3">
+                                            <label class="">Cupos</label>
+                                            <input type="text" name="title" id="title" class="form-control ml-sm-2" placeholder="">
+                                        </div>
+                                        
+                                        <div class="col-sm-2 mt-4">
+                                            <button type="button" class="btn btn-info btn-block " id="add">
+                                                añadir
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Table -->
+
+                    <div class="mt-5">
+                        <table class="table table-hover table-striped" id="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Hora Inicio</th>
+                                    <th scope="col">Hora Fin</th>
+                                    <th scope="col">Cupos</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                        <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
+                                <tr>
+                                        <th scope="row">1</th>
+                                        <td>7.00 am</td>
+
+                                        <td>12.00 pm</td>
+
+                                        <td>20</td>
+
+                                        <td class="text-right">
+                                            <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            
+                                            <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            
+                                            <button class="btn btn-danger mb-1 ml-1">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>1.00 pm</td>
+
+                                    <td>5.00 pm</td>
+
+                                    <td>15</td>
+
+                                    <td class="text-right">
+                                        <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        
+                                        <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        
+                                        <button class="btn btn-danger mb-1 ml-1">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                        
+                              
+                                    
+                                    
+                            </tbody>
+                                </table>
+                            </div>
+                        </div>
