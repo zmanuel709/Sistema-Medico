@@ -13,7 +13,7 @@ const {
     updatePac,
     deletePac,
     renderHrc,
-    renderDia,
+    renderdia,
     renderDoc,
 } = require('../controllers/gestion.controller');
 
