@@ -69,4 +69,20 @@ gestionCtrl.deletePac = async (req, res) =>  {
     res.redirect('/addPaciente')
 };
 
+// mostrar horarios
+gestionCtrl.renderHrc = async (req, res) => {
+    res.render('gestion/horarios');
+};
+
+// mostrar dias
+gestionCtrl.renderdia = async (req, res) => {
+    res.render('gestion/dias');
+};
+
+// mostrar doctores
+gestionCtrl.renderDoc = async (req, res) => {
+    res.render('gestion/doctores');
+};
+
+
 module.exports = gestionCtrl;
