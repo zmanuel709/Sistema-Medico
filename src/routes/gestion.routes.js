@@ -58,10 +58,10 @@ router.delete('/addPaciente/delete/:id', isAuthenticated, deletePac);
 router.get('/historial/:id', isAuthenticated);
 
 // rutas para ver los horarios
-router.get('/addhrc', isAuthenticated, renderHrc);
+router.get('/addHrc', isAuthenticated, renderHrc);
 
 // rutas para ver los dias
-router.get('/addDias', isAuthenticated, renderdia);
+router.get('/addDias', isAuthenticated, renderDia);
 
 // rutas para ver los doctores
 router.get('/addDoc', isAuthenticated, renderDoc);
