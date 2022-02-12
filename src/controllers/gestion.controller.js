@@ -75,7 +75,7 @@ gestionCtrl.renderHrc = async (req, res) => {
 };
 
 // mostrar dias
-gestionCtrl.renderdia = async (req, res) => {
+gestionCtrl.renderDia = async (req, res) => {
     res.render('gestion/dias');
 };
 
