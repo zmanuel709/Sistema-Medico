@@ -1,5 +1,6 @@
 body {
     background: #1488cc;
+    background: url(../img/bg3.jpg) center top;
     background-size: cover;
     height: 100vh;
 }
