@@ -11,7 +11,10 @@ const {
     renderPac,
     createNewPac,
     updatePac,
-    deletePac
+    deletePac,
+    renderHrc,
+    renderDia,
+    renderDoc,
 } = require('../controllers/gestion.controller');
 
 //autenticacion de usuario
