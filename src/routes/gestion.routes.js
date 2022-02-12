@@ -13,7 +13,7 @@ const {
     updatePac,
     deletePac,
     renderHrc,
-    renderdia,
+    renderDia,
     renderDoc,
 } = require('../controllers/gestion.controller');
 
@@ -61,7 +61,7 @@ router.get('/historial/:id', isAuthenticated);
 router.get('/addhrc', isAuthenticated, renderHrc);
 
 // rutas para ver los dias
-router.get('/adddia', isAuthenticated, renderdia);
+router.get('/addDias', isAuthenticated, renderdia);
 
 // rutas para ver los doctores
 router.get('/addDoc', isAuthenticated, renderDoc);
