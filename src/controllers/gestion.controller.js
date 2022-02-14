@@ -84,5 +84,9 @@ gestionCtrl.renderDoc = async (req, res) => {
     res.render('gestion/doctores');
 };
 
+// mostrar citas 
+gestionCtrl.renderCitas = async (req, res) => {
+  res.render('gestion/citas');
+};
 
 module.exports = gestionCtrl;

@@ -15,6 +15,7 @@ const {
     renderHrc,
     renderDia,
     renderDoc,
+    renderCitas
 } = require('../controllers/gestion.controller');
 
 //autenticacion de usuario
@@ -65,5 +66,8 @@ router.get('/addDias', isAuthenticated, renderDia);
 
 // rutas para ver los doctores
 router.get('/addDoc', isAuthenticated, renderDoc);
+
+//rutas para ver las citas
+router.get('/addCitas', isAuthenticated, renderCitas);
 
 module.exports = router
