@@ -1,32 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cadena de favores</title>
-    {{!-- boostrap 4 --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/cosmo/bootstrap.min.css">
 
-     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    {{!-- custom css --}}
-    <link rel="stylesheet" href="/css/main.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Sacando Sonrisas</title>
+  <meta name="description" content="" />
+  <meta name="author" content="Tooplate" />
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Additional CSS Files -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="/assets/css/tooplate-style.css" />
+  <link rel="stylesheet" href="/assets/css/owl.css" />
+  <link rel="stylesheet" href="/assets/css/lightbox.css" />
 </head>
 <body>
+  <div id="page-wraper">
 
     {{>navigation}}
-    
-    <main class="container p-5">
-        {{>message}}
-        {{>errors}}
-        {{{body}}}
-    </main>
 
-{{!-- boostrap 4 --}}
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<section class="section about-me" data-section="section1">
 
+    {{>message}}
+    {{>errors}}
+    {{{body}}}
+        </section>
+
+    </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="/assets/js/isotope.min.js"></script>
+  <script src="/assets/js/owl-carousel.js"></script>
+  <script src="/assets/js/lightbox.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script>
+    //according to loftblog tut
+    $(".main-menu li:first").addClass("active");
+
+    var showSection = function showSection(section, isAnimate) {
+      var direction = section.replace(/#/, ""),
+        reqSection = $(".section").filter(
+          '[data-section="' + direction + '"]'
+        ),
+        reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $("body, html").animate(
+          {
+            scrollTop: reqSectionPos
+          },
+          800
+        );
+      } else {
+        $("body, html").scrollTop(reqSectionPos);
+      }
+    };
+
+    var checkSection = function checkSection() {
+      $(".section").each(function () {
+        var $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+          var currentId = $this.data("section"),
+            reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+          reqLink
+            .closest("li")
+            .addClass("active")
+            .siblings()
+            .removeClass("active");
+        }
+      });
+    };
+
+      $(window).scroll(function () {
+      checkSection();
+    });
+  </script>
 </body>
+
 </html>
