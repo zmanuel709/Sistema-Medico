@@ -35,7 +35,7 @@ usersCtrl.signup = async (req, res) => {
             newUSer.password = await newUSer.encryptPassword(password);
             await newUSer.save(); 
             req.flash('success_msg', 'registro exitoso. ya puede ingresar al sistema.');
-            res.redirect('/users/signin');z
+            res.redirect('/users/signin');
         }
     };
 };
