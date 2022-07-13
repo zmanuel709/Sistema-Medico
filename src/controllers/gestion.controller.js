@@ -1,6 +1,7 @@
 const gestionCtrl = {};
 const Especialidad = require('../models/especialidades'); 
 const Paciente = require('../models/pacientes');
+const Empleados = require('../models/empleados');
 
 //funciones de las especialidades
 
@@ -80,8 +81,18 @@ gestionCtrl.renderDia = async (req, res) => {
 };
 
 // mostrar doctores
-gestionCtrl.renderDoc = async (req, res) => {
-    res.render('gestion/doctores');
+gestionCtrl.renderEmp = async (req, res) => {
+    const empleado = await Empleado.find().sort({createdAt: 'desc'});
+    res.render('gestion/doctores', { empleado });
+};
+
+gestionCtrl.createNewEmp = async (req, res) => {
+    const { cedula, nombres, apellidos, especialidad, telefono, correo } = req.body;
+    const newEmp = new Empleado({cedula, nombres, apellidos, especialidad, telefono, correo});
+    newEmp.user = req.user.id;
+    await newEmp.save();
+    req.flash('success_msg', 'Un empleado ha sido agregado');
+    res.redirect('/addEmpleado')
 };
 
 // mostrar citas 
