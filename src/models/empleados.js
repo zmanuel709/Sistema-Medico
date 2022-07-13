@@ -20,7 +20,7 @@ const empleadosSchema = new Schema({
     telefono: {
         type: String,
         require: true
-    }
+    },
 correo: {
         type: String,
         require: true
