@@ -1,7 +1,7 @@
 const gestionCtrl = {};
 const Especialidad = require('../models/especialidades'); 
 const Paciente = require('../models/pacientes');
-const Empleados = require('../models/empleados');
+const Empleado = require('../models/empleados');
 
 //funciones de las especialidades
 
