@@ -1,7 +1,6 @@
- lines (26 sloc)  498 Bytes
 const {Schema, model} = require('mongoose');
 
-const pacientesSchema = new Schema({
+const empleadosSchema = new Schema({
     cedula: {
         type: String,
         require: true
@@ -14,7 +13,7 @@ const pacientesSchema = new Schema({
         type: String,
         require: true
     },
-    direccion: {
+    especialidad: {
         type: String,
         require: true
     },
@@ -22,8 +21,12 @@ const pacientesSchema = new Schema({
         type: String,
         require: true
     }
+correo: {
+        type: String,
+        require: true
+    }
 }, {
     timestamps: true
 })
 
-module.exports = model('Paciente', pacientesSchema);
+module.exports = model('Empleados', empleadosSchema);
