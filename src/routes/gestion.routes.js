@@ -66,7 +66,7 @@ router.get('/addHrc', isAuthenticated, renderHrc);
 router.get('/addDias', isAuthenticated, renderDia);
 
 // rutas para ver los doctores
-router.get('/addEmp', isAuthenticated, renderEmp);
+router.get('/addEmpleado', isAuthenticated, renderEmp);
 
 //add empleados
 router.post('/addEmpleado', isAuthenticated, createNewEmp);
