@@ -14,7 +14,8 @@ const {
     deletePac,
     renderHrc,
     renderDia,
-    renderDoc,
+    renderEmp,
+    createNewEmp,
     renderCitas
 } = require('../controllers/gestion.controller');
 
@@ -65,7 +66,10 @@ router.get('/addHrc', isAuthenticated, renderHrc);
 router.get('/addDias', isAuthenticated, renderDia);
 
 // rutas para ver los doctores
-router.get('/addDoc', isAuthenticated, renderDoc);
+router.get('/addEmp', isAuthenticated, renderEmp);
+
+//add empleados
+router.post('/addEmpleado', isAuthenticated, createNewEmp);
 
 //rutas para ver las citas
 router.get('/addCitas', isAuthenticated, renderCitas);
