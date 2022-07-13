@@ -1,166 +1,206 @@
-<!-- titulo y filtros de busqueda  -->
-        <div id="especialidades">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center">
-                            <h3 class="font-weight-bold">Lista de Horarios</h3>
+<div class="container">
+
+        <!-- titulo y filtros de busqueda  -->
+        <div class="pt-5" id="especialidades">
+          <div class="card text-dark">
+            <div class="card-body">
+              <div class="text-center">
+                <h3 class="">Lista de Inventario</h3>
+              </div>
+
+
+
+              <!-- {{!-- ventana modal para editar --}} -->
+
+
+              <div class="modal fade text-dark" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title font-weight-bold">
+                              Editar Equipo/Insumo
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="alert alert-danger d-none" role="alert" id="modal-alert">
+                              A simple danger alert—check it out!
+                          </div>
+                      <form>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label for="inputEmail4">Nombre</label>
+                                  <input type="text" class="form-control" id="inputEmail4" placeholder="ingresa nombre completo">
+                              </div>
+                              <div class="form-group col-md-6">
+                                  <label for="inputPassword4">ID</label>
+                                  <input type="text" class="form-control" id="inputPassword4" placeholder="ingresa Apellido completo">
+                              </div>
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label for="inputEmail4">Cantidad</label>
+                                  <input type="text" class="form-control" id="inputEmail4" placeholder="ingresa tu Nro de cedula">
+                              </div>
+                              <div class="form-group col-md-6">
+                                  <label for="inputPassword4">Ubicacion/Sede</label>
+                                  <input type="text" class="form-control" id="inputPassword4" placeholder="ingresa Nro de Telefono">
+                              </div>
+                          </div>
+
+                          <div class="col-sm-10  align-items-center mb-3">
+                            <label class="m-sm-0">Descripcion</label>
+                            <input type="text" name="title" id="title" class="form-control"
+                                placeholder="Nro de Cedula">
                         </div>
 
+                      </form>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                              cerrar
+                          </button>
+                          <button type="button" class="btn btn-info bg-danger border-danger" id="modal-btn">
+                              guardar
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
 
-                    <!-- {{!-- ventana modal para editar --}} -->
+              <main>
+                <div class="container pt-3">
+                  <div class="alert alert-danger d-none" role="alert" id="alert">
+                    A simple danger alert—check it out!
+                  </div>
 
+                  <!-- añadir especialidad -->
 
-                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title font-weight-bold">
-                                        Editar Horario
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="alert alert-danger d-none" role="alert" id="modal-alert">
-                                        A simple danger alert—check it out!
-                                    </div>
-                                <form>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="time">Hora Inicio</label>
-                                              <input type="time" id="time" class="form-control ">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="time">Hora Fin</label>
-                                              <input type="time" id="time" class="form-control ">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label class="m-sm-0"> Cupos</label>
-                                            <input type="text" name="title" id="title" class="form-control " placeholder="">
-                                        </div>
-                                    </div>
-
-                                   
-
-                                </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                        cerrar
-                                    </button>
-                                    <button type="button" class="btn btn-info" id="modal-btn">
-                                        guardar
-                                    </button>
-                                </div>
+                  <div>
+                    <form action="/notes/new-note" method="post">
+                        <div class="row">
+                            <div class="col-sm-3 d-sm align-items-center mb-3">
+                                <label class="m-sm-0">Nombre</label>
+                                <input type="text" name="title" id="title" class="form-control ml-sm-2"
+                                    placeholder="Nro de Cedula">
+                            </div>
+                            <div class="col-sm-4 d-sm align-items-center mb-3">
+                                <label class="m-sm-0">ID</label>
+                                <input type="text" name="title" id="title" class="form-control ml-sm-2"
+                                    placeholder="Nombre completo">
+                            </div>
+                            <div class="col-sm-5 d-sm align-items-center mb-3">
+                                <label class="m-sm-0">Cantidad</label>
+                                <input type="text" name="title" id="title" class="form-control ml-sm-2"
+                                    placeholder="Apellidos completo">
+                            </div>
+                            <div class="col-sm-5 d-sm align-items-center mb-3">
+                              <label class="m-sm-0">Ubicacion/Sede</label>
+                              <input type="text" name="title" id="title" class="form-control ml-sm-2"
+                                  placeholder="Apellidos completo">
+                          </div>
+                          <div class="col-sm-5 d-sm align-items-center mb-3">
+                            <label class="m-sm-0">Descripcion</label>
+                            <input type="text" name="title" id="title" class="form-control ml-sm-2"
+                                placeholder="Apellidos completo">
+                        </div>
+                            
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-info btn-block mt-4 bg-danger border-danger" id="add">
+                                    añadir
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                </div>
 
+                  <!-- Table -->
 
-                    <main>
-                        <div class="container pt-3">
-                            <div class="alert alert-danger d-none" role="alert" id="alert">
-                                A simple danger alert—check it out!
-                            </div>
+                  <div class="mt-5">
+                    <table class="table table-hover table-striped" id="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Ubicacion</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                    <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
+                            <tr>
+                                    <th scope="row">1</th>
+                                    <td>inyectadoras</td>
 
-                            <!-- añadir especialidad -->
+                                    <td>0202</td>
 
-                            <div>
-                                <form action="/notes/new-note" method="post">
-                                    <div class="row">
-                                        <div class="col-sm-3 align-items-center mb-3">
-                                              <label for="time">Hora Inicio</label>
-                                              <input type="time" id="time" class="form-control ml-sm-2">
-                                        </div>
-                                        <div class="col-sm-3 align-items-center mb-3">
-                                            <label for="time">Hora Fin</label>
-                                              <input type="time" id="time" class="form-control ml-sm-2">
-                                        </div>
+                                    <td>220</td>
+                                    <td>Barquisimeto</td>
+                                    <td>jeringuilla desechable de plástico</td>
+
                                   
-                                            <div class="col-sm-3 align-items-center mb-3">
-                                            <label class="">Cupos</label>
-                                            <input type="text" name="title" id="title" class="form-control ml-sm-2" placeholder="">
-                                        </div>
-                                        
-                                        <div class="col-sm-2 mt-4">
-                                            <button type="button" class="btn btn-info btn-block " id="add">
-                                                añadir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Table -->
-
-                    <div class="mt-5">
-                        <table class="table table-hover table-striped" id="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Hora Inicio</th>
-                                    <th scope="col">Hora Fin</th>
-                                    <th scope="col">Cupos</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                        <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
-                                <tr>
-                                        <th scope="row">1</th>
-                                        <td>7.00 am</td>
-
-                                        <td>12.00 pm</td>
-
-                                        <td>20</td>
-
-                                        <td class="text-right">
-                                            <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            
-                                            <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            
-                                            <button class="btn btn-danger mb-1 ml-1">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>1.00 pm</td>
-
-                                    <td>5.00 pm</td>
-
-                                    <td>15</td>
+                                    <!-- estos son los dos botones para editar y eliminar  -->
 
                                     <td class="text-right">
                                         <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
                                         <input type="hidden" name="_method" value="DELETE">
                                         
                                         <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
-                                            <i class="fas fa-edit"></i>
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                          </svg>
                                         </button>
                                         
                                         <button class="btn btn-danger mb-1 ml-1">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </td>
-                                </tr>
-                                        
-                              
+                            </tr>
+
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>gasas</td>
+
+                                    <td>0932</td>
+
+                                    <td>400</td>
+                                    <td>tocuyo</td>
+                                    <td>Caja x 25 Sobres x 2 Unds</td>
+                           
+                                <!-- estos son los dos botones para editar y eliminar  -->
+
+                                <td class="text-right">
+                                    <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
                                     
+                                    <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                      </svg>
+                                    </button>
                                     
-                            </tbody>
-                                </table>
-                            </div>
+                                    <button class="btn btn-danger mb-1 ml-1">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                                    
+                          
+                                
+                                
+                        </tbody>
+                            </table>
                         </div>
+                </div>            
+            </div>
+          </div>
+        </div>

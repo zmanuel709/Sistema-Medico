@@ -1,245 +1,215 @@
-      <div class="container">
+     <div class="container">
 
-          <!-- titulo y filtros de busqueda  -->
-          <div class="pt-5" id="especialidades">
-            <div class="card text-dark">
-              <div class="card-body">
-                <div class="text-center">
-                  <h3 class="">Lista de Citas</h3>
-                </div>
-
-
-
-                <!-- {{!-- ventana modal para editar --}} -->
+        <!-- titulo y filtros de busqueda  -->
+        <div class="pt-5" id="especialidades">
+          <div class="card text-dark">
+            <div class="card-body">
+              <div class="author-content">
+                <h4 class="text-danger text-center">Lista de todas las Citas</h4>
+              </div>
 
 
-                <div class="modal fade text-dark" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title font-weight-bold">
-                                Editar Cita
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="alert alert-danger d-none" role="alert" id="modal-alert">
-                                A simple danger alert—check it out!
-                            </div>
-                        <form>
 
-                            <div class="col-sm-10  align-items-center mb-3">
-                                <label class="m-sm-0">Cedula del paciente</label>
+              <!-- {{!-- ventana modal para editar --}} -->
+
+
+              <div class="modal fade text-dark" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title font-weight-bold">
+                              Editar Cita
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="alert alert-danger d-none" role="alert" id="modal-alert">
+                              A simple danger alert—check it out!
+                          </div>
+                      <form>
+
+                          <div class="col-sm-10  align-items-center mb-3">
+                              <label class="m-sm-0">Cedula del paciente</label>
+                              <input type="text" name="title" id="title" class="form-control"
+                                  placeholder="Nro de Cedula">
+                          </div>
+
+                          
+                          <div class="col-sm-10  align-items-center mb-3">
+                            <label for="exampleFormControlSelect1" class="m-1">Medico</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option>--selecciona--</option>
+                              <option>Julio Linares</option>
+                              <option>Marcial Daza</option>
+                              <option>Carlos Lugo</option>
+                              <option>Carmen Tovar</option>
+                            </select>
+                          </div>
+                    
+                              <div class="col-sm-10  align-items-center mb-3">
+                                <label for="exampleFormControlSelect1" class="m-1">Turno</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>--selecciona--</option>
+                                  <option>Mañana</option>
+                                  <option>Tarde</option>
+                                </select>
+                          </div>
+
+                          <div class="form-group col-md-10">
+                              <label for="date">Fecha programada</label>
+                                <input type="date" id="date" class="form-control ">
+                          </div>
+
+                         
+
+                      </form>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                              cerrar
+                          </button>
+                          <button type="button" class="btn btn-info bg-danger border-danger" id="modal-btn">
+                              guardar
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+              <main>
+                <div class="container pt-3">
+                  <div class="alert alert-danger d-none" role="alert" id="alert">
+                    A simple danger alert—check it out!
+                  </div>
+
+                  <!-- añadir especialidad -->
+
+                  <div>
+                    <form action="/notes/new-note" method="post">
+                        <div class="row">
+
+                            <div class="col-sm-4 align-items-center mb-3">
+                                <label class="m-1">Cedula del paciente</label>
                                 <input type="text" name="title" id="title" class="form-control"
                                     placeholder="Nro de Cedula">
                             </div>
-
-                            <div class="col-sm-10  align-items-center mb-3">
-                                    <label for="exampleFormControlSelect1" class="m-1">especialidad</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Lunes</option>
-                                    <option>Martes</option>
-                                    <option>Miercoles</option>
-                                    <option>Jueves</option>
-                                    <option>Viernes</option>
-                                    </select>
-                            </div>
-                            <div class="col-sm-10  align-items-center mb-3">
+                            <div class="col-sm-4 align-items-center mb-3">
                                 <label for="exampleFormControlSelect1" class="m-1">Medico</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                   <option>--selecciona--</option>
-                                  <option>urologo</option>
-                                  <option>cirujano</option>
-                                  <option>traumatologo</option>
-                                  <option>oftalmologo</option>
+                                  <option>Julio Linares</option>
+                                  <option>Marcial Daza</option>
+                                  <option>Carlos Lugo</option>
+                                  <option>Carmen Tovar</option>
                                 </select>
                             </div>
                       
-                                <div class="col-sm-10  align-items-center mb-3">
-                                    <label for="exampleFormControlSelect1" class="m-1">Dia</label>
+                                <div class="col-sm-4 align-items-center mb-3">
+                                    <label for="exampleFormControlSelect1" class="m-1">Turno</label>
                                     <select class="form-control" id="exampleFormControlSelect1">
                                       <option>--selecciona--</option>
-                                      <option>urologo</option>
-                                      <option>cirujano</option>
-                                      <option>traumatologo</option>
-                                      <option>oftalmologo</option>
+                                      <option>Mañana</option>
+                                      <option>Tarde</option>
                                     </select>
                             </div>
 
-                            <div class="form-group col-md-10">
+                            <div class="form-group col-md-6">
                                 <label for="date">Fecha programada</label>
                                   <input type="date" id="date" class="form-control ">
                             </div>
-
-                           
-
-                        </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                cerrar
-                            </button>
-                            <button type="button" class="btn btn-info bg-danger border-danger" id="modal-btn">
-                                guardar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-                <main>
-                  <div class="container pt-3">
-                    <div class="alert alert-danger d-none" role="alert" id="alert">
-                      A simple danger alert—check it out!
-                    </div>
-
-                    <!-- añadir especialidad -->
-
-                    <div>
-                      <form action="/notes/new-note" method="post">
-                          <div class="row">
-
-                              <div class="col-sm-3 align-items-center mb-3">
-                                  <label class="m-1">Cedula del paciente</label>
-                                  <input type="text" name="title" id="title" class="form-control"
-                                      placeholder="Nro de Cedula">
-                              </div>
-
-                              <div class="col-sm-3 align-items-center mb-3">
-                                      <label for="exampleFormControlSelect1" class="m-1">especialidad</label>
-                                      <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Lunes</option>
-                                      <option>Martes</option>
-                                      <option>Miercoles</option>
-                                      <option>Jueves</option>
-                                      <option>Viernes</option>
-                                      </select>
-                              </div>
-                              <div class="col-sm-3 align-items-center mb-3">
-                                  <label for="exampleFormControlSelect1" class="m-1">Medico</label>
-                                  <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>--selecciona--</option>
-                                    <option>urologo</option>
-                                    <option>cirujano</option>
-                                    <option>traumatologo</option>
-                                    <option>oftalmologo</option>
-                                  </select>
-                              </div>
-                        
-                                  <div class="col-sm-3 align-items-center mb-3">
-                                      <label for="exampleFormControlSelect1" class="m-1">Dia</label>
-                                      <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>--selecciona--</option>
-                                        <option>urologo</option>
-                                        <option>cirujano</option>
-                                        <option>traumatologo</option>
-                                        <option>oftalmologo</option>
-                                      </select>
-                              </div>
-
-                              <div class="form-group col-md-6">
-                                  <label for="date">Fecha programada</label>
-                                    <input type="date" id="date" class="form-control ">
-                              </div>
-                              
-                              <div class="col-sm-2 mt-0">
-                                  <button type="button" class="btn btn-info btn-block mt-4 bg-danger border-danger" id="add">
-                                      añadir
-                                  </button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-
-
-                    <!-- Table -->
-
-                    <div class="mt-5">
-                      <table class="table table-hover table-striped" id="table">
-                          <thead>
-                              <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">Cedula del paciente</th>
-                                  <th scope="col">especialidad</th>
-                                  <th scope="col">Medico</th>
-                                  <th scope="col">Dia</th>
-                                  <th scope="col">Fecha programada</th>
-                                  <th scope="col"></th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                                      <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
-                              <tr>
-                                      <th scope="row">1</th>
-
-                                      <td>28.150.444</td>
-                                      
-                                      <td>lunes</td>
-
-                                      <td>cardiologia</td>
-
-                                      <td>Marcial Daza</td>
-
-                                      <td>01/02/2022</td>
-
-                                      <td class="text-right">
-                                          <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
-                                          <input type="hidden" name="_method" value="DELETE">
-                                          
-                                          <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                              <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                            </svg>
-                                          </button>
-                                          
-                                          <button class="btn btn-danger mb-1 ml-1">
-                                              <i class="fa fa-trash"></i>
-                                          </button>
-                                      </td>
-                              </tr>
-
-                              <tr>
-                                  <th scope="row">2</th>
-                                 
-                                  <td>28.150.444</td>
-                                      
-                                  <td>lunes</td>
-
-                                  <td>cardiologia</td>
-
-                                  <td>Marcial Daza</td>
-
-                                  <td>01/02/2022</td>
-                                  <td class="text-right">
-                                      <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
-                                      <input type="hidden" name="_method" value="DELETE">
-                                      
-                                      <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                        </svg>
-                                      </button>
-                                      
-                                      <button class="btn btn-danger mb-1 ml-1">
-                                          <i class="fa fa-trash"></i>
-                                      </button>
-                                  </td>
-                              </tr>
-                                      
                             
-                                  
-                                  
-                          </tbody>
-                              </table>
-                          </div>
-                  </div>
-                
-              </div>
-            </div>
+                            <div class="col-sm-2 mt-0">
+                                <button type="button" class="btn btn-info btn-block mt-4 bg-danger border-danger" id="add">
+                                    añadir
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
+
+                  <!-- Table -->
+
+                  <div class="mt-5">
+                    <table class="table table-hover table-striped" id="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Cedula del paciente</th>
+                                <th scope="col">Medico</th>
+                                <th scope="col">Turno</th>
+                                <th scope="col">Fecha programada</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                    <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
+                            <tr>
+                                    <th scope="row">1</th>
+
+                                    <td>28.193.341</td>
+         
+                                    <td>Marcial Daza</td>
+
+                                    <td>Mañana</td>
+
+                                    <td>01/02/2022</td>
+
+                                    <td class="text-right">
+                                        <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        
+                                        <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                          </svg>
+                                        </button>
+                                        
+                                        <button class="btn btn-danger mb-1 ml-1">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">2</th>
+                               
+                                <td>29.172.234</td>
+
+                                <td>Carlos Lugo</td>
+
+                                <td>tarde</td>
+
+                                <td>01/02/2022</td>
+                                <td class="text-right">
+                                    <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    
+                                    <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                      </svg>
+                                    </button>
+                                    
+                                    <button class="btn btn-danger mb-1 ml-1">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                                    
+                          
+                                
+                                
+                        </tbody>
+                            </table>
+                        </div>
+                </div>
+              
+            </div>
           </div>
 
+        </div>
