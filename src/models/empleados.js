@@ -29,4 +29,4 @@ correo: {
     timestamps: true
 })
 
-module.exports = model('Empleados', empleadosSchema);
+module.exports = model('Empleado', empleadosSchema);
