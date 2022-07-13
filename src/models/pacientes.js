@@ -25,4 +25,4 @@ const pacientesSchema = new Schema({
     timestamps: true
 })
 
-module.exports = model('Pacientes', pacientesSchema);
+module.exports = model('Paciente', pacientesSchema);
