@@ -1,51 +1,51 @@
 <!-- Sidebar Menu -->
-    <div class="responsive-nav">
-      <i class="fa fa-bars" id="menu-toggle"></i>
-      <div id="menu" class="menu">
-        <i class="fa fa-times" id="menu-close"></i>
-        <div class="container">
-          <div class="image">
-            <a href="#"><img src="/assets/images/logo-image.jpg" alt="Blugoon by Tooplate" /></a>
-          </div>
-          <div class="author-content">
-            <h4>Sacando Sonrisas</h4>
-          </div>
-          <nav class="main-nav">
-            <ul class="main-menu">
-              {{#if user}}
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/addCitas">Citas</a></li>
-                <li><a href="/addPaciente">Pacientes</a></li>
-                <li><a href="/addEmpleado">Empleados</a></li>
-                <li><a href="/addHrc">Invetario</a></li>
-                <li><a href="/addDias">Reportes</a></li>
-                <li><a href="/users/logout">Salir</a></li>
-              {{else}}
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/users/signin">Inicia Sesion</a></li>
-              <li><a href="/users/signup">Registrate</a></li>
-              {{/if}}
-            </ul>
-          </nav>
-          <div class="social-network">
-            <ul class="soial-icons">
-              <li>
-                <a href="#section1"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-rss"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
+<div class="responsive-nav">
+  <i class="fa fa-bars" id="menu-toggle"></i>
+  <div id="menu" class="menu">
+    <i class="fa fa-times" id="menu-close"></i>
+    <div class="container">
+      <div class="image">
+        <a href="#"><img src="/assets/images/logo-image.jpg" alt="Blugoon by Tooplate" /></a>
       </div>
-    </div>               
+      <div class="author-content">
+        <h4>Sacando Sonrisas</h4>
+      </div>
+      <nav class="main-nav">
+        <ul class="main-menu">
+          {{#if user}}
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/Cita">Citas</a></li>
+          <li><a href="/addPaciente">Pacientes</a></li>
+          <li><a href="/addEmpleado">Empleados</a></li>
+          <li><a href="/addHrc">Invetario</a></li>
+          <li><a href="/addDias">Reportes</a></li>
+          <li><a href="/users/logout">Salir</a></li>
+          {{else}}
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/users/signin">Inicia Sesion</a></li>
+          <li><a href="/users/signup">Registrate</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+      <div class="social-network">
+        <ul class="soial-icons">
+          <li>
+            <a href="#section1"><i class="fa fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-rss"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

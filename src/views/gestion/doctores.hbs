@@ -1,161 +1,85 @@
-      <div class="container">
+<div class="container">
 
-        <!-- titulo y filtros de busqueda  -->
-        <div class="pt-5" id="especialidades">
-          <div class="card text-dark">
+    <!-- titulo y filtros de busqueda  -->
+    <div class="pt-5" id="especialidades">
+        <div class="card text-dark">
             <div class="card-body">
-              <div class="text-center">
-                <h3 class="">Lista de todos los Empleados</h3>
-              </div>
-
-
-
-              <!-- {{!-- ventana modal para editar --}} -->
-
-
-              <div class="modal fade text-dark" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title font-weight-bold">
-                              Editar Empleado
-                          </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <div class="modal-body">
-                          <div class="alert alert-danger d-none" role="alert" id="modal-alert">
-                              A simple danger alert—check it out!
-                          </div>
-                      <form>
-
-                          <div class="form-row">
-                              <div class="form-group col-md-6">
-                                  <label for="inputEmail4">Nombres</label>
-                                  <input type="text" class="form-control" id="inputEmail4" placeholder="ingresa nombre completo">
-                              </div>
-                              <div class="form-group col-md-6">
-                                  <label for="inputPassword4">Apellidos</label>
-                                  <input type="text" class="form-control" id="inputPassword4" placeholder="ingresa Apellido completo">
-                              </div>
-                          </div>
-
-                          <div class="form-row">
-                              <div class="form-group col-md-6">
-                                  <label for="inputEmail4">Numero de Cedula</label>
-                                  <input type="text" class="form-control" id="inputEmail4" placeholder="ingresa tu Nro de cedula">
-                              </div>
-                              <div class="form-group col-md-6">
-                                  <label for="inputPassword4">Numero de Telefono</label>
-                                  <input type="text" class="form-control" id="inputPassword4" placeholder="ingresa Nro de Telefono">
-                              </div>
-                          </div>
-
-                          <div class="form-group px-sm- col-sm-14 align-items-center mt-2 mt-sm-0">
-                              <label for="exampleFormControlSelect1">Especialidad</label>
-                              <select class="form-control" id="exampleFormControlSelect1">
-                                <option>--selecciona--</option>
-                                <option>odontologia</option>
-                                <option>secretaria</option>
-                                <option>personal de limpieza</option>
-                                <option>seguridad</option>
-                              </select>
-                            </div>
-
-                      </form>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                              cerrar
-                          </button>
-                          <button type="button" class="btn btn-info bg-danger border-danger" id="modal-btn">
-                              guardar
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-
-              <main>
-                <div class="container pt-3">
-                  <div class="alert alert-danger d-none" role="alert" id="alert">
-                    A simple danger alert—check it out!
-                  </div>
-
-                  <!-- añadir empleado -->
-
-                  <div>
-                    <form action="/addEmpleado" method="post">
-                        <div class="row">
-                            <div class="col-sm-3 d-sm align-items-center mb-3">
-                                <label class="m-sm-0">Cedula</label>
-                                <input type="text" name="cedula" id="title" class="form-control ml-sm-2"
-                                    placeholder="Nro de Cedula">
-                            </div>
-                            <div class="col-sm-4 d-sm align-items-center mb-3">
-                                <label class="m-sm-0">Nombres</label>
-                                <input type="text" name="nombres" id="title" class="form-control ml-sm-2"
-                                    placeholder="Nombre completo">
-                            </div>
-                            <div class="col-sm-5 d-sm align-items-center mb-3">
-                                <label class="m-sm-0">Apellidos</label>
-                                <input type="text" name="apellidos" id="title" class="form-control ml-sm-2"
-                                    placeholder="Apellidos completo">
-                            </div>
-                            <div class="form-group px-sm- col-sm-4 align-items-center mt-2 mt-sm-2">
-                                <label for="exampleFormControlSelect1">Especialidad</label>
-                                <select class="form-control" name="especialidad" id="especialidad">
-                                  <option>--selecciona--</option>
-                                  <option>odontologia</option>
-                                  <option>secretaria</option>
-                                  <option>personal de limpieza</option>
-                                  <option>seguridad</option>
-                                </select>
-                              </div>
-                                <div class="col-sm-3 d-sm align-items-center mt-3">
-                                <label class="m-sm-0">Telefono</label>
-                                <input type="text" name="telefono" id="title" class="form-control ml-sm-2"
-                                    placeholder="Nro de Telefono">
-                            </div>
-                            <div class="col-sm-3 d-sm align-items-center mt-3">
-                              <label class="m-sm-0">Correo</label>
-                              <input type="email" name="correo" id="title" class="form-control ml-sm-2"
-                                  placeholder="Nro de Telefono">
-                          </div>
-                            
-                            <div class="col-sm-2">
-                                <button type="submit" class="btn btn-info btn-block mt-4 bg-danger border-danger" id="add">
-                                    añadir
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="text-center">
+                    <h3 class="">Lista de todos los Empleados</h3>
                 </div>
 
-                  <!-- Table -->
+                <main>
+                    <div class="container pt-3">
+                        <div class="alert alert-danger d-none" role="alert" id="alert">
+                            A simple danger alert—check it out!
+                        </div>
 
-                  <div class="mt-5">
-                    <table class="table table-hover table-striped" id="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Cedula</th>
-                                <th scope="col">Nombres</th>
-                                <th scope="col">Apellidos</th>
-                                <th scope="col">Especialidad</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                        <!-- añadir empleado -->
+
+                        <div>
+                            <form action="/addEmpleado" method="post">
+                                <div class="row">
+                                    <div class="col-sm-3 d-sm align-items-center mb-3">
+                                        <label class="m-sm-0">Cedula</label>
+                                        <input type="text" name="cedula" id="title" class="form-control ml-sm-2"
+                                            placeholder="Nro de Cedula">
+                                    </div>
+                                    <div class="col-sm-4 d-sm align-items-center mb-3">
+                                        <label class="m-sm-0">Nombres</label>
+                                        <input type="text" name="nombres" id="title" class="form-control ml-sm-2"
+                                            placeholder="Nombre completo">
+                                    </div>
+                                    <div class="col-sm-5 d-sm align-items-center mb-3">
+                                        <label class="m-sm-0">Apellidos</label>
+                                        <input type="text" name="apellidos" id="title" class="form-control ml-sm-2"
+                                            placeholder="Apellidos completo">
+                                    </div>
+                                    <div class="form-group px-sm- col-sm-4 align-items-center mt-2 mt-sm-2">
+                                        <label for="exampleFormControlSelect1">Especialidad</label>
+                                        <select class="form-control" name="especialidad" id="especialidad">
+                                            <option>--selecciona--</option>
+                                            <option>odontologia</option>
+                                            <option>secretaria</option>
+                                            <option>personal de limpieza</option>
+                                            <option>seguridad</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 d-sm align-items-center mt-3">
+                                        <label class="m-sm-0">Telefono</label>
+                                        <input type="text" name="telefono" id="title" class="form-control ml-sm-2"
+                                            placeholder="Nro de Telefono">
+                                    </div>
+                                   
+                                    <div class="col-sm-4">
+                                        <button type="submit"
+                                            class="btn btn-info btn-block mt-4 bg-danger border-danger" id="add">
+                                            añadir
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Table -->
+
+                        <div class="mt-5">
+                            <table class="table table-hover table-striped" id="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Cedula</th>
+                                        <th scope="col">Nombres</th>
+                                        <th scope="col">Apellidos</th>
+                                        <th scope="col">Especialidad</th>
+                                        <th scope="col">Telefono</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
 
 
-{{#each empleado}}
+                                    {{#each empleado}}
                                     <tr>
                                         <th scope="row">{{@index}}</th>
 
@@ -164,18 +88,21 @@
                                         <td>{{apellidos}}</td>
                                         <td>{{especialidad}}</td>
                                         <td>{{telefono}}</td>
-                                        <td>{{correo}}</td>
 
-                                     
+
 
                                         <!-- editar y eliminar  -->
 
                                         <td class="text-right">
-                                            <form class="d-inline" action="/addPaciente/delete/{{_id}}?_method=DELETE" method="POST">
+                                            <form class="d-inline" action="/addEmpleado/delete/{{_id}}?_method=DELETE"
+                                                method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
 
-                                                <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#m{{@index}}">
-                                                    <i class="fas fa-edit"></i>
+                                                <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
+                                                    data-target="#m{{@index}}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                      </svg>
                                                 </button>
 
                                                 <button class="btn btn-danger mb-1 ml-1">
@@ -187,59 +114,75 @@
 
                                     {{!-- ventana modal --}}
 
-                                    <div class="modal fade" id="m{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                        aria-hidden="true">
+                                    <div class="modal fade" id="m{{@index}}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title font-weight-bold">
-                                                        Editar Paciente
+                                                        Editar Empleado
                                                     </h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="alert alert-danger d-none" role="alert" id="modal-alert">
+                                                    <div class="alert alert-danger d-none" role="alert"
+                                                        id="modal-alert">
                                                         A simple danger alert—check it out!
                                                     </div>
-                                                    <form action="/addPaciente/edit/{{_id}}?_method=PUT" method="POST">
+                                                    <form action="/addEmpleado/edit/{{_id}}?_method=PUT" method="POST">
                                                         <input type="hidden" name="_method" value="PUT">
 
                                                         <div class="form-row">
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputEmail4">Nombres</label>
-                                                                <input type="text" class="form-control" name="nombres"
-                                                                    placeholder="ingresa nombre completo" value="{{nombres}}">
+                                                                <input type="text" class="form-control" id="inputEmail4"
+                                                                    placeholder="ingresa nombre completo"
+                                                                    value="{{nombres}}" name="nombres">
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputPassword4">Apellidos</label>
-                                                                <input type="text" class="form-control" name="apellidos"
-                                                                    placeholder="ingresa Apellido completo" value="{{apellidos}}">
+                                                                <input type="text" class="form-control"
+                                                                    id="inputPassword4"
+                                                                    placeholder="ingresa Apellido completo"
+                                                                    value="{{apellidos}}" name="apellidos">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-row">
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputEmail4">Numero de Cedula</label>
-                                                                <input type="text" class="form-control" name="cedula"
-                                                                    placeholder="ingresa tu Nro de cedula" value="{{cedula}}">
+                                                                <input type="text" class="form-control" id="inputEmail4"
+                                                                    placeholder="ingresa tu Nro de cedula"
+                                                                    value="{{cedula}}" name="cedula">
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputPassword4">Numero de Telefono</label>
-                                                                <input type="text" class="form-control" name="telefono"
-                                                                    placeholder="ingresa Nro de Telefono" value="{{telefono}}">
+                                                                <input type="text" class="form-control"
+                                                                    id="inputPassword4"
+                                                                    placeholder="ingresa Nro de Telefono"
+                                                                    value="{{telefono}}" name="telefono">
                                                             </div>
+                                                            <div
+                                                            class="form-group px-sm- col-sm-6 align-items-center mt-2 mt-sm-0">
+                                                            <label for="exampleFormControlSelect1">Especialidad</label>
+                                                            <select class="form-control" id="exampleFormControlSelect1" name="especialidad">
+                                                                <option>--selecciona--</option>
+                                                                <option>odontologia</option>
+                                                                <option>secretaria</option>
+                                                                <option>personal de limpieza</option>
+                                                                <option>seguridad</option>
+                                                            </select>
+                                                        </div>
                                                         </div>
 
-                                                        <div class="form-group">
-                                                            <label for="inputAddress">Direccion</label>
-                                                            <textarea name="direccion" class="form-control" rows="3"
-                                                                placeholder="sector, avenida, callle, ciudad">{{especialidad}}</textarea>
-                                                        </div>
+                                                        
 
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">
                                                                 cerrar
                                                             </button>
                                                             <button class="btn btn-info">
@@ -247,20 +190,20 @@
                                                             </button>
                                                     </form>
                                                 </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                {{/each}}
-
-
-                      
-                                
-                        </tbody>
-                            </table>
                         </div>
-                </div>            
+
+                        {{/each}}
+
+
+
+
+                        </tbody>
+                        </table>
+                    </div>
             </div>
-          </div>
         </div>
+    </div>
+</div>

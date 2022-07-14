@@ -16,7 +16,12 @@ const {
     renderDia,
     renderEmp,
     createNewEmp,
-    renderCitas
+    updateEmp,
+    deleteEmp,
+    renderCit,
+    createNewCit,
+    updateCit,
+    deleteCit
 } = require('../controllers/gestion.controller');
 
 //autenticacion de usuario
@@ -65,13 +70,25 @@ router.get('/addHrc', isAuthenticated, renderHrc);
 // rutas para ver los dias
 router.get('/addDias', isAuthenticated, renderDia);
 
-// rutas para ver los doctores
+// rutas para ver los empleados
 router.get('/addEmpleado', isAuthenticated, renderEmp);
 
 //add empleados
 router.post('/addEmpleado', isAuthenticated, createNewEmp);
 
+//editar empleado
+router.put('/addEmpleado/edit/:id', isAuthenticated, updateEmp);
+
+//delete empleado
+router.delete('/addEmpleado/delete/:id', isAuthenticated, deleteEmp);
+
 //rutas para ver las citas
-router.get('/addCitas', isAuthenticated, renderCitas);
+router.get('/Cita', isAuthenticated, renderCit);
+
+router.post('/Cita', isAuthenticated, createNewCit);
+
+router.put('/Cita/edit/:id', isAuthenticated, updateCit);
+
+router.delete('/Cita/delete/:id', isAuthenticated, deleteCit);
 
 module.exports = router
