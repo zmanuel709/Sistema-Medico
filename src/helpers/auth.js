@@ -5,7 +5,7 @@ helpers.isAuthenticated = (req, res, next) => {
         return next();
     }
     req.flash('error_msg', 'Aun no has iniciado sesion en esta pagina...');
-    res.redirect('/users/signin');
+    res.redirect('/');
 }
 
 module.exports = helpers;

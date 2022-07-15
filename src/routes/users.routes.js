@@ -1,15 +1,17 @@
 const { Router } = require('express');
 const router = Router();
 
-const { renderSignUpForm, renderSignInForm, signup, signin, logout } = require('../controllers/users.controllers');
+const { renderSignUpForm, renderSignInForm, signup, signin, renderRecuperarForm, logout } = require('../controllers/users.controllers');
 
 router.get('/users/signup', renderSignUpForm);
 
 router.post('/users/signup', signup);
 
-router.get('/users/signin', renderSignInForm);
+router.get('', renderSignInForm);
 
 router.post('/users/signin', signin);
+
+router.get('/users/recuperar', renderRecuperarForm);
 
 router.get('/users/logout', logout);
 

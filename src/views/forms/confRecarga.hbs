@@ -1,0 +1,91 @@
+<div class="clearfix"></div>
+
+    <div class="content-wrapper">
+      <div class="container-fluid">
+
+        <div class="row mt-3">
+          <div class="col-lg-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title"><i class="icon-wallet mr-2"></i> Billetera</div>
+                <p class="pb-2">Saldo Actual: 12.00$</p>
+                <hr>
+                <div class="card-title"><i class="zmdi zmdi-paypal"></i>  Recargar Saldo</div>
+                <form action="/verRecarga">
+                  <div class="form-group">
+                    <label for="input-1">Monto a Recargar</label>
+                    <input type="text" class="form-control" id="input-1" value="10$" disabled="" placeholder="Monto">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-2">Metodo de recarga</label>
+                    <select name="" class="form-control" disabled="" id="input-2" >
+                      <option value="">Pago movil (P2P)</option>
+                      <option value="">Binance</option>
+                      <option value="">PayPal</option>
+                    </select>
+                  </div>
+
+                  <hr>
+                  <div class="card-title"><i class="icon-wallet mr-2"></i> Realiza el pago</div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Cedula:</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="28.150.444" disabled="" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Telefono</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="0424-5169621" disabled="" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Banco:</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="Provincial" disabled="" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Monto en Bs:</label>
+                  <div class="col-lg-9">
+                      <input class="form-control" type="text" value="58.00 Bs" disabled="" > 
+                  </div>
+              </div>
+              <hr>
+
+              <div class="card-title"><i class="zmdi zmdi-assignment-check mr-2"></i> Verificar el pago</div>
+              <div class="form-group">
+                <label for="input-1">Numero de Cedula</label>
+                <input type="text" class="form-control" id="input-1"placeholder="cedula del titular">
+              </div>
+              <div class="form-group">
+                <label for="input-1">Numero de Telefono</label>
+                <input type="text" class="form-control" id="input-1" placeholder="Telefono del titular">
+              </div>
+              <div class="form-group">
+                <label for="input-1">Numero de Referencia</label>
+                <input type="text" class="form-control" id="input-1" placeholder="Nro Ref">
+              </div>
+
+
+
+                  <div>
+                    <button id="payment-button" type="submit" class="btn btn-light px-5 btn-info btn-block">
+                      <i class="icon-wallet mr-2"></i>&nbsp;
+                      <span id="payment-button-amount">Verificar</span>
+                      <span id="payment-button-sending" style="display:none;">Sending…</span>
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-light btn-info btn-block mt-2 px-5">
+                      Cancelar</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!--End Row-->

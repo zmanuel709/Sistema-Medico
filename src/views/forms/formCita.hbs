@@ -1,0 +1,60 @@
+<div class="clearfix"></div>
+
+    <div class="content-wrapper">
+      <div class="container-fluid">
+
+        <div class="row mt-3">
+          <div class="col-lg-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Solicitar una nueva Cita</div>
+                <hr>
+                <form action="/confCita">
+                  <div class="form-group">
+                    <label for="input-1">Cedula del Paciente</label>
+                    <input type="text" class="form-control" id="input-1" placeholder="Ingresa tu numero de Cedula">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-2">Medico</label>
+                    <select name="" class="form-control" id="input-2">
+                      <option>-selecciona-</option>
+                      <option value="">Marcial Daza</option>
+                      <option value="">Carlos Lugo</option>
+                      <option value="">Hernan Fuentes</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="input-2">Turno</label>
+                    <select name="" class="form-control" id="input-2">
+                      <option>-selecciona-</option>
+                      <option value="">De 7:00am a 11:00am</option>
+                      <option value="">De 1:00pm a 6:00pm</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="input-3">Fecha</label>
+                    <input type="date" class="form-control" id="input-3">
+                  </div>
+
+                  <div>
+                    <button id="payment-button" type="submit" class="btn btn-light px-5 btn-info btn-block">
+                      <i class="fa fa-lock fa-lg"></i>&nbsp;
+                      <span id="payment-button-amount">Pagar $5.00</span>
+                      <span id="payment-button-sending" style="display:none;">Sending…</span>
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-light btn-info btn-block mt-2 px-5"><i class="icon-lock"></i>
+                      Cancelar</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!--End Row-->

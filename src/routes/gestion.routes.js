@@ -14,12 +14,51 @@ const {
     deletePac,
     renderHrc,
     renderDia,
-    renderDoc,
-    renderCitas
+    renderEmp,
+    createNewEmp,
+    updateEmp,
+    deleteEmp,
+    renderCit,
+    createNewCit,
+    updateCit,
+    deleteCit,
+    renderRep,
+    renderPer,
+    renderTra,
+    renderAce,
+    renderBit,
+    renderRec,
+    renderVerRec,
+    renderFormCita,
+    renderConfCita,
+    renderVerCita
 } = require('../controllers/gestion.controller');
 
 //autenticacion de usuario
 const { isAuthenticated } = require('../helpers/auth')
+
+router.get('/reportes', isAuthenticated, renderRep);
+
+router.get('/perfil', isAuthenticated, renderPer);
+
+router.get('/transacciones', isAuthenticated, renderTra);
+
+router.get('/acceso', isAuthenticated, renderAce);
+
+router.get('/billetera', isAuthenticated, renderBit);
+
+router.get('/recargar', isAuthenticated, renderRec);
+
+router.get('/verRecarga', isAuthenticated, renderVerRec);
+
+router.get('/solicitarCita', isAuthenticated, renderFormCita);
+
+router.get('/confCita', isAuthenticated, renderConfCita);
+
+router.get('/verCita', isAuthenticated, renderVerCita);
+
+
+
 
 //especialidades
 
@@ -64,10 +103,25 @@ router.get('/addHrc', isAuthenticated, renderHrc);
 // rutas para ver los dias
 router.get('/addDias', isAuthenticated, renderDia);
 
-// rutas para ver los doctores
-router.get('/addDoc', isAuthenticated, renderDoc);
+// rutas para ver los empleados
+router.get('/addEmpleado', isAuthenticated, renderEmp);
+
+//add empleados
+router.post('/addEmpleado', isAuthenticated, createNewEmp);
+
+//editar empleado
+router.put('/addEmpleado/edit/:id', isAuthenticated, updateEmp);
+
+//delete empleado
+router.delete('/addEmpleado/delete/:id', isAuthenticated, deleteEmp);
 
 //rutas para ver las citas
-router.get('/addCitas', isAuthenticated, renderCitas);
+router.get('/Cita', isAuthenticated, renderCit);
+
+router.post('/Cita', isAuthenticated, createNewCit);
+
+router.put('/Cita/edit/:id', isAuthenticated, updateCit);
+
+router.delete('/Cita/delete/:id', isAuthenticated, deleteCit);
 
 module.exports = router

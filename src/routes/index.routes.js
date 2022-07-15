@@ -3,7 +3,7 @@ const router = Router();
 
 const { renderIndex, renderAbout } = require('../controllers/index.controller')
 
-router.get('/', renderIndex);
+router.get('/inicio', renderIndex);
 
 router.get('/about', renderAbout);
 

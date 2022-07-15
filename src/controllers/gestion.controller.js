@@ -1,8 +1,51 @@
 const gestionCtrl = {};
 const Especialidad = require('../models/especialidades'); 
 const Paciente = require('../models/pacientes');
+const Empleado = require('../models/empleados');
+const Cita = require('../models/citas')
 
 //funciones de las especialidades
+
+gestionCtrl.renderRep = async (req, res) => {
+    res.render('gestion/reportes');
+};
+
+
+gestionCtrl.renderPer = async (req, res) => {
+    res.render('users/perfil');
+};
+
+gestionCtrl.renderTra = async (req, res) => {
+    res.render('gestion/bitTrans');
+};
+
+gestionCtrl.renderAce = async (req, res) => {
+    res.render('gestion/bitAcess');
+};
+
+gestionCtrl.renderBit = async (req, res) => {
+    res.render('gestion/billetera');
+};
+
+gestionCtrl.renderRec = async (req, res) => {
+    res.render('forms/confRecarga');
+};
+
+gestionCtrl.renderVerRec = async (req, res) => {
+    res.render('forms/verRecarga');
+};
+
+gestionCtrl.renderFormCita = async (req, res) => {
+    res.render('forms/formCita');
+};
+
+gestionCtrl.renderConfCita = async (req, res) => {
+    res.render('forms/verCita');
+};
+
+gestionCtrl.renderVerCita = async (req, res) => {
+    res.render('forms/confCita');
+};
 
 gestionCtrl.renderEsp = async (req, res) => {
     const especialidad = await Especialidad.find().sort({createdAt: 'desc'});
@@ -56,7 +99,6 @@ gestionCtrl.createNewPac = async (req, res) => {
 };
 
 gestionCtrl.updatePac = async (req, res) =>  {
-    console.log(req.body);
     const { cedula, nombres, apellidos, direccion, telefono } = req.body;
     await Paciente.findByIdAndUpdate(req.params.id, { cedula, nombres, apellidos, direccion, telefono });
     req.flash('success_msg', 'Un paciente ha sido Actualizado.');    
@@ -80,13 +122,60 @@ gestionCtrl.renderDia = async (req, res) => {
 };
 
 // mostrar doctores
-gestionCtrl.renderDoc = async (req, res) => {
-    res.render('gestion/doctores');
+gestionCtrl.renderEmp = async (req, res) => {
+    const empleado = await Empleado.find().sort({createdAt: 'desc'});
+    res.render('gestion/doctores', { empleado });
 };
 
-// mostrar citas 
-gestionCtrl.renderCitas = async (req, res) => {
-  res.render('gestion/citas');
+gestionCtrl.createNewEmp = async (req, res) => {
+    const { cedula, nombres, apellidos, especialidad, telefono } = req.body;
+    const newEmp = new Empleado({cedula, nombres, apellidos, especialidad, telefono });
+    newEmp.user = req.user.id;
+    await newEmp.save();
+    req.flash('success_msg', 'Un empleado ha sido agregado');
+    res.redirect('/addEmpleado')
+};
+
+gestionCtrl.updateEmp = async (req, res) =>  {
+    const { cedula, nombres, apellidos, especialidad, telefono } = req.body;
+    await Empleado.findByIdAndUpdate(req.params.id, { cedula, nombres, apellidos, especialidad, telefono });
+    req.flash('success_msg', 'Un Empleado ha sido Actualizado.');    
+    res.redirect('/addEmpleado');
+};
+
+gestionCtrl.deleteEmp = async (req, res) =>  {
+    await Empleado.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Un Empleado ha sido Eliminado.');
+    res.redirect('/addEmpleado')
+};
+
+// mostrar agregar editar y eliminar citas 
+gestionCtrl.renderCit = async (req, res) => {
+    const cita = await Cita.find().sort({createdAt: 'desc'});
+    let Medicos = await Empleado.find({'especialidad': 'odontologia' }); 
+    res.render('gestion/citas', { cita, Medicos });
+};
+
+gestionCtrl.createNewCit = async (req, res) => {
+    const { cedula, medico, turno, fecha } = req.body;
+    const newCit = new Cita({cedula, medico, turno, fecha});
+    newCit.user = req.user.id;
+    await newCit.save();
+    req.flash('success_msg', 'Una Cita ha sido agregada...');
+    res.redirect('/Cita')
+};
+
+gestionCtrl.updateCit = async (req, res) =>  {
+    const { cedula, medico, turno, fecha } = req.body;
+    await Cita.findByIdAndUpdate(req.params.id, { cedula, medico, turno, fecha });
+    req.flash('success_msg', 'Una Cita ha sido Actualizada...');    
+    res.redirect('/Cita');
+};
+
+gestionCtrl.deleteCit = async (req, res) =>  {
+    await Cita.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Una Cita ha sido Eliminada...');
+    res.redirect('/Cita')
 };
 
 module.exports = gestionCtrl;

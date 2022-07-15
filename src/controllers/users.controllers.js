@@ -35,7 +35,7 @@ usersCtrl.signup = async (req, res) => {
             newUSer.password = await newUSer.encryptPassword(password);
             await newUSer.save(); 
             req.flash('success_msg', 'registro exitoso. ya puede ingresar al sistema.');
-            res.redirect('/users/signin');
+            res.redirect('/');
         }
     };
 };
@@ -44,16 +44,20 @@ usersCtrl.renderSignInForm = (req, res) => {
     res.render('users/signin');
 };
 
+usersCtrl.renderRecuperarForm = (req, res) => {
+    res.render('users/recuperar');
+};
+
 usersCtrl.signin = passport.authenticate('local', {
     failureRedirect: '/users/signin',
-    successRedirect: '/',
+    successRedirect: '/addPaciente',
     failureFlash: true
 });
 
 usersCtrl.logout = (req, res) => {
     req.logout();
     req.flash('success_msg', 'tu sesion se ha cerrado.');
-    res.redirect('/users/signin');
+    res.redirect('/');
 }
 
 module.exports = usersCtrl;
