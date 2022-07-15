@@ -49,7 +49,7 @@ usersCtrl.renderRecuperarForm = (req, res) => {
 };
 
 usersCtrl.signin = passport.authenticate('local', {
-    failureRedirect: '/users/signin',
+    failureRedirect: '/',
     successRedirect: '/addPaciente',
     failureFlash: true
 });
