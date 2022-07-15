@@ -199,52 +199,51 @@
                   </div>
                 </div>
                 <div class="tab-pane" id="edit">
-                    <form>
+                    {{#if roleMedico}}
+                    <form action="/addEmpleado" method="post">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Nombres</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Manuel">
+                                <input name="nombres" class="form-control" type="text" value="{{user.name}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Apellidos</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="">
+                                <input name="apellidos" class="form-control" type="text" value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">cedula</label>
+                            <label class="">cedula</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="">
+                                <input class="form-control" name="cedula" type="text" value="">
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                                        <label for="col-lg-3 col-form-label form-control-label">Especialidad</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" name="especialidad" id="especialidad">
+                                            <option>--selecciona--</option>
+                                            <option>odontologia</option>
+                                            <option>pediatria</option>
+                                            <option>oftamologia</option>
+                                            <option>otorrino</option>
+                                        </select>
+                                        </div>
+                           </div>
                         
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Telefono</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="url" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Direccion</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Calle">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-6">
-                                <input class="form-control" type="text" value="" placeholder="Ciudad">
-                            </div>
-                            <div class="col-lg-3">
-                                <input class="form-control" type="text" value="" placeholder="Estado">
+                                <input class="form-control" type="text" name="telefono" value="">
                             </div>
                         </div>
                        
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="zmanuel709@gmail.com">
+                                <input class="form-control" type="text" value="{{user.email}}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -263,10 +262,85 @@
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
                                 <input type="reset" class="btn btn-secondary" value="Cancelar">
-                                <input type="button" class="btn btn-primary" value="Guardar">
+                                <input type="submit" class="btn btn-primary" value="Guardar">
                             </div>
                         </div>
                     </form>
+                    {{/if}}
+
+                    {{#if rolePac}}
+
+                    <form action="/addPaciente" method="post">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nombres</label>
+                            <div class="col-lg-9">
+                                <input name="nombres" class="form-control" type="text" value="{{user.name}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Apellidos</label>
+                            <div class="col-lg-9">
+                                <input name="apellidos" class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">cedula</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="cedula" type="text" value="">
+                            </div>
+                        </div>
+
+                                               
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Telefono</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="telefono" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Direccion</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="direccion" value="" placeholder="Calle">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-6">
+                                <input class="form-control" type="text" value="" placeholder="Ciudad">
+                            </div>
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" value="" placeholder="Estado">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="{{user.email}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Contraseña</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirmar Contraseña</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                <input type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+                        </div>
+                    </form>
+
+                    {{/if}}
                 </div>
             </div>
         </div>

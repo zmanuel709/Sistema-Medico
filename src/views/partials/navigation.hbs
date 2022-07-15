@@ -1,4 +1,235 @@
-{{#if user}}
+{{#if roleMedico}}
+<!-- Start wrapper-->
+ <div id="wrapper">
+ 
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="">
+       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">Cadena de Favores</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">Navegacion de Medico</li>
+     
+
+      <li>
+        <a href="/addEmpleado">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Medicos</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/addPaciente">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Pacientes</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/addEsp">
+          <i class="zmdi zmdi-grid"></i> <span>Especialidades</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/Cita">
+          <i class="zmdi zmdi-calendar-check"></i> <span>Citas</span>
+          <small class="badge float-right badge-light">New</small>
+        </a>
+      </li>
+
+      <li>
+        <a href="/perfil">
+          <i class="zmdi zmdi-face"></i> <span>perfil</span>
+        </a>
+      </li>
+
+
+    </ul>
+   
+   </div>
+   <!--End sidebar-wrapper-->
+
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Buscar por clave">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+     
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li>
+    <li class="nav-item language">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+        </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="/img/avatar.jpg" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="/perfil">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="/img/avatar.jpg" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">{{user.name}}</h6>
+            <p class="user-subtitle">{{user.email}}</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Mensajes</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera   {{user.saldo}}$</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Seguridad</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> <a href="/users/logout">Cerrar sesion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+{{/if}}
+
+{{#if rolePac}}
+<!-- Start wrapper-->
+ <div id="wrapper">
+ 
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="">
+       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">Cadena de Favores</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">Navegacion de Pacientes</li>
+      
+      <li>
+        <a href="/addEmpleado">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Medicos</span>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="/addEsp">
+          <i class="zmdi zmdi-grid"></i> <span>Especialidades</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/Cita">
+          <i class="zmdi zmdi-calendar-check"></i> <span>Citas</span>
+          <small class="badge float-right badge-light">New</small>
+        </a>
+      </li>
+
+      <li>
+        <a href="/perfil">
+          <i class="zmdi zmdi-face"></i> <span>perfil</span>
+        </a>
+      </li>
+
+    </ul>
+   
+   </div>
+   <!--End sidebar-wrapper-->
+
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Buscar por clave">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+     
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li>
+    <li class="nav-item language">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+        </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="/img/avatar.jpg" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="/perfil">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="/img/avatar.jpg" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">{{user.name}}</h6>
+            <p class="user-subtitle">{{user.email}}</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Mensajes</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera   {{user.saldo}}$</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Seguridad</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> <a href="/users/logout">Cerrar sesion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+{{/if}}
+
+{{#if roleAdm}}
 <!-- Start wrapper-->
  <div id="wrapper">
  
@@ -111,8 +342,8 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="/img/avatar.jpg" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">Manuel Zambrano</h6>
-            <p class="user-subtitle">zmanuel79@gmail.com</p>
+            <h6 class="mt-2 user-title">{{user.name}}</h6>
+            <p class="user-subtitle">{{user.email}}</p>
             </div>
            </div>
           </a>
@@ -120,7 +351,7 @@
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Mensajes</li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera    12.00$</a></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera    {{user.saldo}}$</a></li>
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-settings mr-2"></i> Seguridad</li>
         <li class="dropdown-divider"></li>
@@ -130,55 +361,4 @@
   </ul>
 </nav>
 </header>
-{{else}}
 {{/if}}
-<!--End topbar header-->
-
-{{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">
-         <img src="/img/5a725e672e9d1e8d686ce9a2cf8f871c.png" width="50" height="30" class="d-inline-block align-top" alt="">Cadena de Favores
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">Noticias</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                {{#if user}}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-expanded="false">
-                        Gestion 
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/addCitas">Citas</a>
-                        <a class="dropdown-item" href="/addEsp">Especialidades</a>
-                        <a class="dropdown-item" href="/addHrc">Horarios</a>
-                        <a class="dropdown-item" href="/addDias">Dias</a>
-                        <a class="dropdown-item" href="/addDoc">Medicos</a>
-                        <a class="dropdown-item" href="/addPaciente">Pacientes</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/users/logout">Cerrar sesion</a>
-                    </div>
-                </li>
-                {{else}}
-                <li class="nav-item">
-                    <a href="/users/signin" class="nav-link">login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/users/signup" class="nav-link">Register</a>
-                </li>
-                {{/if}}
-            </ul>
-        </div>
-    </div>
-</nav> --}}

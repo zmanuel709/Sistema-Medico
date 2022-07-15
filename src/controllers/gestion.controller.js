@@ -2,54 +2,421 @@ const gestionCtrl = {};
 const Especialidad = require('../models/especialidades'); 
 const Paciente = require('../models/pacientes');
 const Empleado = require('../models/empleados');
-const Cita = require('../models/citas')
+const User = require('../models/Users')
+const Role = require('../models/role')
+const Cita = require('../models/citas');
+const { create } = require('handlebars');
 
 //funciones de las especialidades
 
 gestionCtrl.renderRep = async (req, res) => {
-    res.render('gestion/reportes');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('gestion/reportes', {rolePac, roleMedico, roleAdm});
 };
 
 
 gestionCtrl.renderPer = async (req, res) => {
-    res.render('users/perfil');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('users/perfil', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderTra = async (req, res) => {
-    res.render('gestion/bitTrans');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('gestion/bitTrans', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderAce = async (req, res) => {
-    res.render('gestion/bitAcess');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('gestion/bitAcess', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderBit = async (req, res) => {
-    res.render('gestion/billetera');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('gestion/billetera', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderRec = async (req, res) => {
-    res.render('forms/confRecarga');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+
+   
+    res.render('forms/confRecarga', {rolePac, roleMedico, roleAdm, });
 };
 
 gestionCtrl.renderVerRec = async (req, res) => {
-    res.render('forms/verRecarga');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+
+
+     
+
+    const userSaldo = await User.findById(req.user.id);
+
+    const newSaldo = userSaldo.saldo + saldo;
+    await User.findByIdAndUpdate(req.user.id, { newSaldo });
+    res.render('forms/verRecarga', {rolePac, roleMedico, roleAdm, saldo, newSaldo });
 };
 
 gestionCtrl.renderFormCita = async (req, res) => {
-    res.render('forms/formCita');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('forms/formCita', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderConfCita = async (req, res) => {
-    res.render('forms/verCita');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('forms/verCita', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderVerCita = async (req, res) => {
-    res.render('forms/confCita');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('forms/confCita', {rolePac, roleMedico, roleAdm});
 };
 
 gestionCtrl.renderEsp = async (req, res) => {
     const especialidad = await Especialidad.find().sort({createdAt: 'desc'});
-    res.render('gestion/especialidades', { especialidad });
+
+    const user = await User.findById(req.user.id);
+    const roles = await Role.find({ _id: { $in: user.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles[i].name === "Medico") {
+        roleMedico=true;
+      } else{
+          roleMedico=false;
+      }
+    }
+
+    const user1 = await User.findById(req.user.id);
+    const roles1 = await Role.find({ _id: { $in: user1.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles1[i].name === "Administrador") {
+        roleAdm=true;
+      } else{
+          roleAdm=false;
+      }
+    }
+
+    const user2 = await User.findById(req.user.id);
+    const roles2 = await Role.find({ _id: { $in: user2.roles } });
+
+    for (let i = 0; i < roles2.length; i++) {
+      if (roles2[i].name === "Paciente") {
+        rolePac=true;
+      } else{
+          rolePac=false;
+      }
+    }
+
+    res.render('gestion/especialidades', { especialidad, rolePac, roleMedico, roleAdm });
 };
 
 gestionCtrl.createNewEsp = async (req, res) => {
@@ -84,9 +451,45 @@ gestionCtrl.deleteEsp = async (req, res) =>  {
 
 //funcines de los pacientes
 
-gestionCtrl.renderPac = async (req, res) => {
+
+gestionCtrl.renderPac = async (req, res ) => {
+
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+      
+      
     const paciente = await Paciente.find().sort({createdAt: 'desc'});
-    res.render('gestion/pacientes', { paciente });
+    res.render('gestion/pacientes', { paciente, rolePac, roleMedico, roleAdm });
 };
 
 gestionCtrl.createNewPac = async (req, res) => {
@@ -113,18 +516,114 @@ gestionCtrl.deletePac = async (req, res) =>  {
 
 // mostrar horarios
 gestionCtrl.renderHrc = async (req, res) => {
-    res.render('gestion/horarios');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('gestion/horarios', {rolePac, roleMedico, roleAdm});
 };
 
 // mostrar dias
 gestionCtrl.renderDia = async (req, res) => {
-    res.render('gestion/dias');
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
+    res.render('gestion/dias', {rolePac, roleMedico, roleAdm});
 };
 
 // mostrar doctores
 gestionCtrl.renderEmp = async (req, res) => {
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
     const empleado = await Empleado.find().sort({createdAt: 'desc'});
-    res.render('gestion/doctores', { empleado });
+    res.render('gestion/doctores', { empleado, rolePac, roleMedico, roleAdm });
 };
 
 gestionCtrl.createNewEmp = async (req, res) => {
@@ -151,9 +650,41 @@ gestionCtrl.deleteEmp = async (req, res) =>  {
 
 // mostrar agregar editar y eliminar citas 
 gestionCtrl.renderCit = async (req, res) => {
+    const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          roleMedico=true;
+        } else{
+            roleMedico=false;
+        }
+      }
+
+      const user1 = await User.findById(req.user.id);
+      const roles1 = await Role.find({ _id: { $in: user1.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles1[i].name === "Administrador") {
+          roleAdm=true;
+        } else{
+            roleAdm=false;
+        }
+      }
+
+      const user2 = await User.findById(req.user.id);
+      const roles2 = await Role.find({ _id: { $in: user2.roles } });
+  
+      for (let i = 0; i < roles2.length; i++) {
+        if (roles2[i].name === "Paciente") {
+          rolePac=true;
+        } else{
+            rolePac=false;
+        }
+      }
     const cita = await Cita.find().sort({createdAt: 'desc'});
     let Medicos = await Empleado.find({'especialidad': 'odontologia' }); 
-    res.render('gestion/citas', { cita, Medicos });
+    res.render('gestion/citas', { cita, Medicos, rolePac, roleMedico, roleAdm });
 };
 
 gestionCtrl.createNewCit = async (req, res) => {
@@ -177,5 +708,66 @@ gestionCtrl.deleteCit = async (req, res) =>  {
     req.flash('success_msg', 'Una Cita ha sido Eliminada...');
     res.redirect('/Cita')
 };
+
+
+gestionCtrl.isModerator = async (req, res, next) => {
+    try {
+      const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+          next();
+          return;
+        }
+      }
+  
+      return res.status(403).json({ message: "Require Medico Role!" });
+    } catch (error) {
+      console.log(error)
+      return res.status(500).send({ message: error });
+    }
+  };
+  
+  gestionCtrl.isAdmin = async (req, res, next) => {
+    try {
+      const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Administrador") {
+          next();
+          return;
+        }
+      }
+  
+      return res.status(403).json({ message: "Require Administrador Role!" });
+    } catch (error) {
+      console.log(error)
+      return res.status(500).send({ message: error });
+    }
+  };
+
+
+  gestionCtrl.comprobarRole = async (req, res, next) => {
+    try {
+      const user = await User.findById(req.user.id);
+      const roles = await Role.find({ _id: { $in: user.roles } });
+  
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "Medico") {
+            console.log("pasando por la funcion");
+          return roleMedico=true;
+        }
+      }
+      console.log("pasando por la funcion");
+      return roleMedico=false;
+
+    } catch {
+        console.log("pasando por la funcion");
+      return roleMedico=false;
+    }
+  };
+
 
 module.exports = gestionCtrl;

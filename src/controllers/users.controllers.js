@@ -3,6 +3,7 @@ const usersCtrl = {};
 const passport = require('passport');
 
 const Users = require('../models/Users')
+const Role = require('../models/role')
 
 usersCtrl.renderSignUpForm = (req, res) => {
     res.render('users/signup');
@@ -10,7 +11,7 @@ usersCtrl.renderSignUpForm = (req, res) => {
 
 usersCtrl.signup = async (req, res) => {
     const errors = [];
-    const { name, email, password, confirm_password } = req.body;
+    const { name, email, password, confirm_password, roles } = req.body;
     if (password != confirm_password) {
         errors.push({text: 'las contraseñas no coinciden'});
     }
@@ -33,7 +34,18 @@ usersCtrl.signup = async (req, res) => {
         } else {
             const newUSer = new Users({name, email, password});
             newUSer.password = await newUSer.encryptPassword(password);
+
+            // checking for roles
+            if (req.body.roles) {
+                const foundRoles = await Role.find({ name: { $in: roles } });
+                newUSer.roles = foundRoles.map((role) => role._id);
+            } else {
+                const role = await Role.findOne({ name: "Paciente" });
+                newUSer.roles = [role._id];
+            }
+
             await newUSer.save(); 
+            console.log(newUSer);
             req.flash('success_msg', 'registro exitoso. ya puede ingresar al sistema.');
             res.redirect('/');
         }
@@ -59,5 +71,7 @@ usersCtrl.logout = (req, res) => {
     req.flash('success_msg', 'tu sesion se ha cerrado.');
     res.redirect('/');
 }
+
+
 
 module.exports = usersCtrl;

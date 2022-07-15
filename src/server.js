@@ -3,6 +3,9 @@ const exphbs = require('express-handlebars');
 const req = require('express/lib/request');
 const path = require('path');
 const morgan = require('morgan');
+
+const createRoles = require('./libs/initialSetup');
+
 const methodOverride = require('method-override'); 
 const flash = require('connect-flash');
 const session = require('express-session');
@@ -10,6 +13,7 @@ const passport = require('passport');
 
 //inicializaciones
 const app = express();
+createRoles();
 require('./config/passport');
 
 //settings
@@ -24,7 +28,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // middlwares
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({

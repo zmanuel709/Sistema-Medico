@@ -31,7 +31,10 @@ const {
     renderVerRec,
     renderFormCita,
     renderConfCita,
-    renderVerCita
+    renderVerCita,
+    isModerator,
+    isAdmin,
+    comprobarRole
 } = require('../controllers/gestion.controller');
 
 //autenticacion de usuario
@@ -48,6 +51,7 @@ router.get('/acceso', isAuthenticated, renderAce);
 router.get('/billetera', isAuthenticated, renderBit);
 
 router.get('/recargar', isAuthenticated, renderRec);
+
 
 router.get('/verRecarga', isAuthenticated, renderVerRec);
 

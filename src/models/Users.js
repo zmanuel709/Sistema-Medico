@@ -5,8 +5,20 @@ const UserSchema = new Schema({
     name: { type: String, require: true},
     email: { type: String, require: true, unique: true},
     password: { type: String, require: true},
-
-}, {
+    saldo: {
+      type: Number,
+      required: true,
+      default: 0
+  },
+    roles: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Role",
+        },
+      ],
+    },
+    
+    {
     timestamps: true
 });
 

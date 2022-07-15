@@ -14,12 +14,12 @@
                 <form action="/verRecarga">
                   <div class="form-group">
                     <label for="input-1">Monto a Recargar</label>
-                    <input type="text" class="form-control" id="input-1" value="10$" disabled="" placeholder="Monto">
+                    <input type="text" class="form-control" name="saldo" id="input-1" value="{{saldo}}" disabled="" placeholder="Monto">
                   </div>
                   <div class="form-group">
                     <label for="input-2">Metodo de recarga</label>
-                    <select name="" class="form-control" disabled="" id="input-2" >
-                      <option value="">Pago movil (P2P)</option>
+                    <select name="mpago" class="form-control" disabled="" id="input-2" >
+                      <option value="">{{mpago}}</option>
                       <option value="">Binance</option>
                       <option value="">PayPal</option>
                     </select>
@@ -48,7 +48,7 @@
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Monto en Bs:</label>
                   <div class="col-lg-9">
-                      <input class="form-control" type="text" value="58.00 Bs" disabled="" > 
+                      <input class="form-control" name="montobs" type="text" value="{{montobs}}" disabled="" > 
                   </div>
               </div>
               <hr>
@@ -71,8 +71,8 @@
 
                   <div>
                     <button id="payment-button" type="submit" class="btn btn-light px-5 btn-info btn-block">
-                      <i class="icon-wallet mr-2"></i>&nbsp;
-                      <span id="payment-button-amount">Verificar</span>
+                       <button type="submit" class="btn btn-light btn-info btn-block mt-2 px-5"> <i class="icon-wallet mr-2"></i>&nbsp;
+                      Verificar</button>
                       <span id="payment-button-sending" style="display:none;">Sending…</span>
                     </button>
                   </div>
