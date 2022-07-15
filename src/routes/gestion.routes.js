@@ -34,7 +34,8 @@ const {
     renderVerCita,
     isModerator,
     isAdmin,
-    comprobarRole
+    comprobarRole,
+    registraracces
 } = require('../controllers/gestion.controller');
 
 //autenticacion de usuario
@@ -85,7 +86,7 @@ router.get('/addEsp/:id/toggleDone', isAuthenticated, espToggleDone);
 //pacientes
 
 //lista pacientes
-router.get('/addPaciente', isAuthenticated, renderPac);
+router.get('/addPaciente', isAuthenticated, registraracces, renderPac);
 
 //add paciente
 router.post('/addPaciente', isAuthenticated, createNewPac);

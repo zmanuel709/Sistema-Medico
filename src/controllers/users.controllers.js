@@ -15,8 +15,8 @@ usersCtrl.signup = async (req, res) => {
     if (password != confirm_password) {
         errors.push({text: 'las contraseñas no coinciden'});
     }
-    if (password.length < 4) {
-        errors.push({text: 'La contraseña debe tener minimo 4 caracteres.'});
+    if (password.length < 6) {
+        errors.push({text: 'La contraseña debe tener minimo 6 caracteres.'});
     } 
     if (errors.length > 0) {
         res.render('users/signup', {

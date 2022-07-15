@@ -5,6 +5,7 @@ const Empleado = require('../models/empleados');
 const User = require('../models/Users')
 const Role = require('../models/role')
 const Cita = require('../models/citas');
+const Acceso = require('../models/transacciones');
 const { create } = require('handlebars');
 
 //funciones de las especialidades
@@ -119,6 +120,8 @@ gestionCtrl.renderTra = async (req, res) => {
 };
 
 gestionCtrl.renderAce = async (req, res) => {
+  const acceso = await Acceso.find().sort({createdAt: 'desc'});
+
     const user = await User.findById(req.user.id);
       const roles = await Role.find({ _id: { $in: user.roles } });
   
@@ -151,7 +154,7 @@ gestionCtrl.renderAce = async (req, res) => {
             rolePac=false;
         }
       }
-    res.render('gestion/bitAcess', {rolePac, roleMedico, roleAdm});
+    res.render('gestion/bitAcess', {rolePac, roleMedico, roleAdm, acceso});
 };
 
 gestionCtrl.renderBit = async (req, res) => {
@@ -265,11 +268,8 @@ gestionCtrl.renderVerRec = async (req, res) => {
 
      
 
-    const userSaldo = await User.findById(req.user.id);
 
-    const newSaldo = userSaldo.saldo + saldo;
-    await User.findByIdAndUpdate(req.user.id, { newSaldo });
-    res.render('forms/verRecarga', {rolePac, roleMedico, roleAdm, saldo, newSaldo });
+    res.render('forms/verRecarga', {rolePac, roleMedico, roleAdm, });
 };
 
 gestionCtrl.renderFormCita = async (req, res) => {
@@ -748,8 +748,17 @@ gestionCtrl.isModerator = async (req, res, next) => {
     }
   };
 
+  
+  gestionCtrl.registraracces = async (req, res, next) => {
+    const { email, name, roles } = req.user;
 
-  gestionCtrl.comprobarRole = async (req, res, next) => {
+    const newAcc = new Acceso({ email, name, roles });
+    newAcc.user = req.user.id;
+    await newAcc.save();
+    return next();
+};
+
+  gestionCtrl.comprobarRole = async (req, res) => {
     try {
       const user = await User.findById(req.user.id);
       const roles = await Role.find({ _id: { $in: user.roles } });
