@@ -92,10 +92,10 @@ router.get('/addPaciente', isAuthenticated, registraracces, renderPac);
 router.post('/addPaciente', isAuthenticated, createNewPac);
 
 //editar paciente
-router.put('/addPaciente/edit/:id', isAuthenticated, updatePac);
+router.put('/addPaciente/edit/:id', isAuthenticated, isAdmin, updatePac);
 
 //delete paciente
-router.delete('/addPaciente/delete/:id', isAuthenticated, deletePac);
+router.delete('/addPaciente/delete/:id', isAuthenticated, isAdmin, deletePac);
 
 //historiales medicos
 
@@ -115,10 +115,10 @@ router.get('/addEmpleado', isAuthenticated, renderEmp);
 router.post('/addEmpleado', isAuthenticated, createNewEmp);
 
 //editar empleado
-router.put('/addEmpleado/edit/:id', isAuthenticated, updateEmp);
+router.put('/addEmpleado/edit/:id', isAuthenticated, isAdmin, updateEmp);
 
 //delete empleado
-router.delete('/addEmpleado/delete/:id', isAuthenticated, deleteEmp);
+router.delete('/addEmpleado/delete/:id', isAuthenticated, isAdmin, deleteEmp);
 
 //rutas para ver las citas
 router.get('/Cita', isAuthenticated, renderCit);
