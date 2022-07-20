@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const router = Router()
 
-//todas las funciones requeridas
+//aqui se importan todas las funciones requeridas por las rutas
 const { 
     renderEsp,
     createNewEsp,
@@ -41,44 +41,45 @@ const {
 //autenticacion de usuario
 const { isAuthenticated } = require('../helpers/auth')
 
+
+//ruta de reportes
 router.get('/reportes', isAuthenticated, renderRep);
 
+
+//perfil de usuario
 router.get('/perfil', isAuthenticated, renderPer);
 
+
+//bitacora de transacciones
 router.get('/transacciones', isAuthenticated, renderTra);
 
+
+//bitacora de acceso
 router.get('/acceso', isAuthenticated, renderAce);
 
+
+//rutas de la billetera
 router.get('/billetera', isAuthenticated, renderBit);
-
 router.get('/recargar', isAuthenticated, renderRec);
-
-
 router.get('/verRecarga', isAuthenticated, renderVerRec);
 
+
+//rutas para solicitar una cita
 router.get('/solicitarCita', isAuthenticated, renderFormCita);
-
 router.get('/confCita', isAuthenticated, renderConfCita);
-
 router.get('/verCita', isAuthenticated, renderVerCita);
-
-
 
 
 //especialidades
 
 //lista especialidades
 router.get('/addEsp', isAuthenticated, renderEsp);
-
 //add especialidad
 router.post('/addEsp', isAuthenticated, createNewEsp);
-
 //editar especialidades
 router.put('/addEsp/edit/:id', isAuthenticated, updateEsp);
-
 //delete especialidades
 router.delete('/addEsp/delete/:id', isAuthenticated, deleteEsp);
-
 //marcar como activas o inactivas
 router.get('/addEsp/:id/toggleDone', isAuthenticated, espToggleDone);
 
@@ -87,46 +88,40 @@ router.get('/addEsp/:id/toggleDone', isAuthenticated, espToggleDone);
 
 //lista pacientes
 router.get('/addPaciente', isAuthenticated, registraracces, renderPac);
-
 //add paciente
 router.post('/addPaciente', isAuthenticated, createNewPac);
-
 //editar paciente
 router.put('/addPaciente/edit/:id', isAuthenticated, isAdmin, updatePac);
-
 //delete paciente
 router.delete('/addPaciente/delete/:id', isAuthenticated, isAdmin, deletePac);
-
-//historiales medicos
-
 //mostrar historial
 router.get('/historial/:id', isAuthenticated);
 
+
 // rutas para ver los horarios
 router.get('/addHrc', isAuthenticated, renderHrc);
-
 // rutas para ver los dias
 router.get('/addDias', isAuthenticated, renderDia);
 
-// rutas para ver los empleados
+
+//medicos
+
+// rutas para ver los medicos
 router.get('/addEmpleado', isAuthenticated, renderEmp);
-
-//add empleados
+//add medico
 router.post('/addEmpleado', isAuthenticated, createNewEmp);
-
-//editar empleado
+//editar medico
 router.put('/addEmpleado/edit/:id', isAuthenticated, isAdmin, updateEmp);
-
-//delete empleado
+//delete medico
 router.delete('/addEmpleado/delete/:id', isAuthenticated, isAdmin, deleteEmp);
+
+
+//citas
 
 //rutas para ver las citas
 router.get('/Cita', isAuthenticated, renderCit);
-
 router.post('/Cita', isAuthenticated, createNewCit);
-
 router.put('/Cita/edit/:id', isAuthenticated, updateCit);
-
 router.delete('/Cita/delete/:id', isAuthenticated, deleteCit);
 
 module.exports = router
