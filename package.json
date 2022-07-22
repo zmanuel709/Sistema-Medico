@@ -1,5 +1,5 @@
 {
-  "name": "crud2",
+  "name": "citas",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "manuel zambrano",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

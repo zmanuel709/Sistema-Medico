@@ -11,12 +11,12 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-//inicializaciones
+//inicializadores
 const app = express();
 createRoles();
 require('./config/passport');
 
-//settings
+//configuraciones del servidor
 app.set('port', process.env.PORT || 5500);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
@@ -28,7 +28,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // middlwares
-// app.use(morgan('dev'));
+// app.use(morgan('dev')); este es para ver la peticiones que envian al sevidor en la consola
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
@@ -50,12 +50,12 @@ app.use((req, res, next) => {
     next();
 });
 
-//rutas
+//rutas del servidor
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/users.routes'));
 app.use(require('./routes/gestion.routes'));
 
-//archivos estaticos
+//archivos estaticos a los que el navegador puede acceder
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
