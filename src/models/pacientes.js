@@ -1,23 +1,27 @@
 const {Schema, model} = require('mongoose');
 
 const pacientesSchema = new Schema({
-    cedula: {
-        type: String,
-        require: true
-    },
     nombres: {
         type: String,
         require: true
     },
-    apellidos: {
+    cedula: {
         type: String,
         require: true
     },
-    direccion: {
+    fn: {
         type: String,
         require: true
     },
-    telefono: {
+    codigoC: {
+        type: String,
+        require: true
+    },
+    sexo: {
+        type: String,
+        require: true
+    },
+    edad: {
         type: String,
         require: true
     }

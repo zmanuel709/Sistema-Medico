@@ -1,209 +1,55 @@
- <!-- titulo y filtros de busqueda  -->
-        <div id="especialidades">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center">
-                            <h3 class="font-weight-bold">Dias</h3>
-                        </div>
+<div class="content">
+            <div class="animated fadeIn">
 
 
-
-                    <!-- {{!-- ventana modal para editar --}} -->
-
-
-                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title font-weight-bold">
-                                        Editar Dia
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="alert alert-danger d-none" role="alert" id="modal-alert">
-                                        A simple danger alert—check it out!
+                <div class="row justify-content-center">
+                   
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header"><strong>Habitantes</strong><small> Formulario</small></div>
+                            <div class="card-body card-block">
+                                <form action="/addPaciente" method="post">
+                                    <div class="form-group">
+                                        <label for="company" class=" form-control-label">Nombre</label>
+                                        <input type="text" name="nombres" placeholder="Manuel Zambrano" class="form-control">
                                     </div>
-                                <form>
+                                    <div class="form-group">
+                                        <label for="vat" class=" form-control-label">Cedula</label>
+                                        <input type="text" name="cedula" placeholder="28150444" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cc-exp" class="control-label mb-1">Fecha de Naciomiento</label>
+                                        <input type="text" name="fn" class="form-control"  placeholder="DD/MM/AAAA Ejemplo: 28/11/2000 ">
+                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Codigo Carnet de la Patria</label>
+                                                <input type="text" name="codigoC" placeholder="000123234566" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <div class="form-row">
-                                        <div class="col-sm-7 d-sm-flex align-items-center mb-3">
-                                            <label for="exampleFormControlSelect1" class="m-3">Dia</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Lunes</option>
-                                            <option>Martes</option>
-                                            <option>Miercoles</option>
-                                            <option>Jueves</option>
-                                            <option>Viernes</option>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="select" class=" form-control-label">Sexo</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="sexo" class="form-control">
+                                                <option value="--">--</option>
+                                                <option value="M">Masculino</option>
+                                                <option value="F">Femenino</option>
                                             </select>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-7 d-sm-flex align-items-center mb-3">
-                                        <label for="exampleFormControlSelect1" class="m-2">Medico</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>--selecciona--</option>
-                                          <option>urologo</option>
-                                          <option>cirujano</option>
-                                          <option>traumatologo</option>
-                                          <option>oftalmologo</option>
-                                        </select>
+                                    <div class="form-actions form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
                                     </div>
-                              
-                                        
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-sm-7 d-sm-flex align-items-center mb-3">
-                                            <label for="exampleFormControlSelect1" class="m-2">Horario</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>--selecciona--</option>
-                                              <option>urologo</option>
-                                              <option>cirujano</option>
-                                              <option>traumatologo</option>
-                                              <option>oftalmologo</option>
-                                            </select>
-                                    </div>
-                                    </div>
-
-                                   
-
                                 </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                        cerrar
-                                    </button>
-                                    <button type="button" class="btn btn-info" id="modal-btn">
-                                        guardar
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <main>
-                        <div class="container pt-3">
-                            <div class="alert alert-danger d-none" role="alert" id="alert">
-                                A simple danger alert—check it out!
-                            </div>
-
-                            <!-- añadir especialidad -->
-
-                            <div>
-                                <form action="/notes/new-note" method="post">
-                                    <div class="row">
-
-                                        <div class="col-sm-3 d-sm-flex align-items-center mb-3">
-                                                <label for="exampleFormControlSelect1" class="m-2">Dia</label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Lunes</option>
-                                                <option>Martes</option>
-                                                <option>Miercoles</option>
-                                                <option>Jueves</option>
-                                                <option>Viernes</option>
-                                                </select>
-                                        </div>
-                                        <div class="col-sm-3 d-sm-flex align-items-center mb-3">
-                                            <label for="exampleFormControlSelect1" class="m-2">Medico</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>--selecciona--</option>
-                                              <option>urologo</option>
-                                              <option>cirujano</option>
-                                              <option>traumatologo</option>
-                                              <option>oftalmologo</option>
-                                            </select>
-                                        </div>
-                                  
-                                            <div class="col-sm-3 d-sm-flex align-items-center mb-3">
-                                                <label for="exampleFormControlSelect1" class="m-2">Horario</label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>--selecciona--</option>
-                                                  <option>urologo</option>
-                                                  <option>cirujano</option>
-                                                  <option>traumatologo</option>
-                                                  <option>oftalmologo</option>
-                                                </select>
-                                        </div>
-                                        
-                                        <div class="col-sm-2 mt-0">
-                                            <button type="button" class="btn btn-info btn-block " id="add">
-                                                añadir
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Table -->
-
-                    <div class="mt-5">
-                        <table class="table table-hover table-striped" id="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Dias</th>
-                                    <th scope="col">Medicos</th>
-                                    <th scope="col">Horarios</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                        <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
-                                <tr>
-                                        <th scope="row">1</th>
-                                        <td>lunes</td>
-
-                                        <td>Marcial Daza</td>
-
-                                        <td>7.00 am - 12.00pm</td>
-
-                                        <td class="text-right">
-                                            <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            
-                                            <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            
-                                            <button class="btn btn-danger mb-1 ml-1">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Martes</td>
-
-                                    <td>Juan Mora</td>
-
-                                    <td>1.00 pm - 5.00pm</td>
-
-                                    <td class="text-right">
-                                        <form class="d-inline" action="/addEsp/delete/{{_id}}?_method=DELETE" method="POST">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        
-                                        <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#modal">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        
-                                        <button class="btn btn-danger mb-1 ml-1">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                        
-                              
-                                    
-                                    
-                            </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </main>
-
-                </div>
             </div>
+        </div>
+    </div><!-- .contenido -->

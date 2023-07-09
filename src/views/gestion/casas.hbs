@@ -1,0 +1,44 @@
+<div class="content">
+    <div class="animated fadeIn">
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Casas</strong><small> Formulario</small></div>
+                    <div class="card-body card-block">
+
+                        <form action="/addHom" method="POST">
+                            <div class="form-group">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-6"><label class=" form-control-label">Seleccionar las
+                                            familias que habitan en esta vivienda:</label>
+                                    </div>
+                                    <div class="col col-md-6">
+                                        <div class="form-check">
+
+                                            {{#each familiaSinCasa}}
+                                            <div class="checkbox">
+                                                <label for="familias" class="form-check-label ">
+                                                    <input type="checkbox" id="familias" name="familias" value="{{_id}}" class="form-check-input">{{codigo}}-{{nombre}}
+                                                </label>
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="company" class=" form-control-label">direccion</label>
+                                    <input type="text" name="direccion" placeholder="" class="form-control">
+                                </div>
+
+                                <button class="btn btn-primary btn-block" type="submit">Crear Casa</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
