@@ -1,11 +1,6 @@
 const gestionCtrl = {};
-const Especialidad = require('../models/especialidades'); 
-const Paciente = require('../models/pacientes');
-const Empleado = require('../models/empleados');
-const Cita = require('../models/citas');
 const Habitante = require('../models/habitantes');
 const Familia = require('../models/familias');
-const Casa = require('../models/casas');
 const { model } = require('mongoose');
 const req = require('express/lib/request');
 
@@ -18,13 +13,38 @@ gestionCtrl.renderHab = async (req, res) => {
     res.render('gestion/habitantes', { habitante});
 };
 
+// mostrar dias
+gestionCtrl.renderHabForm = async (req, res) => {
+    res.render('gestion/habForm');
+};
 
-
-
+ 
 
 //crear nuevo habitante
 gestionCtrl.createNewHab = async (req, res) => {
     const { nombres, cedula, fn, codigoC, sexo } = req.body;
+
+    //verificar que esten todos los datos
+    if (!nombres || !cedula || !fn || !codigoC || !sexo) {
+        req.flash('error_msg', 'Faltan Campos obligatorios');
+        return res.redirect('/habFom');
+    }
+
+    //validar cedula
+    const cedulaVeri = req.body.cedula;
+    const cedulaRegex = /^\d+$/;
+    if (!cedulaRegex.test(cedulaVeri)) {
+        req.flash('error_msg', 'el formato de la cedula es invalido');
+        return res.redirect('/habFom');
+    }
+
+    //validar el formato de la fecha
+    const fechaNacimientoVeri = req.body.fn;
+    const fechaRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!fechaRegex.test(fechaNacimientoVeri)) {
+        req.flash('error_msg', 'el formato de la fecha de nacimiento es incorrecto');
+        return res.redirect('/habFom') 
+    }
     
     //calcular edad 
     const fechaNacimiento = req.body.fn; //extraer nacimiento
@@ -50,7 +70,7 @@ gestionCtrl.createNewHab = async (req, res) => {
     newHab.user = req.user.id;
     await newHab.save();
     req.flash('success_msg', 'Un habitante ha sido agregado');
-    res.redirect('/addDias')
+    res.redirect('/habFom')
 };
 
 
@@ -60,7 +80,7 @@ gestionCtrl.createNewHab = async (req, res) => {
 //render habitantes sin familia
 gestionCtrl.renderFam = async (req, res) => {
     const habitantesSinFamilia = await Habitante.find({familia: null}).sort({createdAt: 'desc'});
-    res.render('gestion/citas', {habitantesSinFamilia});
+    res.render('gestion/famForm', {habitantesSinFamilia});
 };
 
 
@@ -70,6 +90,12 @@ gestionCtrl.renderFam = async (req, res) => {
 //crear nueva familia
 gestionCtrl.createNewFamilia = async (req, res) => {
     const { jefe, miembros, casa } = req.body;
+
+    //verificar que esten todos los datos
+    if (!jefe || !miembros || !casa) {
+        req.flash('error_msg', 'Faltan Campos obligatorios');
+        return res.redirect('/famForm');
+    }
 
      // Obtener el número de la última familia registrada
         const lastFamilia = await Familia.findOne({}, {}, { sort: { codigo: -1 } });
@@ -115,7 +141,7 @@ gestionCtrl.createNewFamilia = async (req, res) => {
 
       // Redirigir a la página de éxito o a donde corresponda
       req.flash('success_msg', 'La familia se ha creado exitosamente');
-      res.redirect('/Cita');
+      res.redirect('/famForm');
 };
 
 
@@ -141,7 +167,7 @@ gestionCtrl.renderFamilias = async (req, res) => {
     } catch (error) {
       console.error(error);
       req.flash('error_msg', 'Ocurrió un error al cargar las familias');
-      res.redirect('/addDias'); // Redirecciona a la página principal en caso de error
+      res.redirect('/habFom'); // Redirecciona a la página principal en caso de error
     }
 };  
 
@@ -157,7 +183,7 @@ gestionCtrl.verHab = async (req, res) => {
     if (!habitante.familia) {
 
         req.flash('error_msg', 'error: el habitante no se puede mostrar sin familia registrada');
-        return res.redirect('/addPaciente');
+        return res.redirect('/habitante');
     }
 
     const habitantesId = habitante.familia.habitantes || []; //si no hay familiares envia un arreglo vacio
@@ -204,7 +230,7 @@ gestionCtrl.deleteHab = async (req, res) =>  {
 
     
     req.flash('success_msg', 'Un Habitante ha sido Eliminado.');
-    res.redirect('/addPaciente')
+    res.redirect('/habitante')
 };
 
 
@@ -265,124 +291,5 @@ gestionCtrl.renderReport = async (req, res) =>{
 
 
 
-
-
-
-gestionCtrl.updatePac = async (req, res) =>  {
-    const { cedula, nombres, apellidos, direccion, telefono } = req.body;
-    await Paciente.findByIdAndUpdate(req.params.id, { cedula, nombres, apellidos, direccion, telefono });
-    req.flash('success_msg', 'Un paciente ha sido Actualizado.');    
-    res.redirect('/addPaciente');
-};
-
-gestionCtrl.deletePac = async (req, res) =>  {
-    await Paciente.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Un Paciente ha sido Eliminado.');
-    res.redirect('/addPaciente')
-};
-
-//funciones de las especialidades
-
-gestionCtrl.renderEsp = async (req, res) => {
-    const especialidad = await Especialidad.find().sort({createdAt: 'desc'});
-    res.render('gestion/especialidades', { especialidad });
-};
-
-gestionCtrl.createNewEsp = async (req, res) => {
-    const {title, description} = req.body;
-    const newEsp = new Especialidad({title , description});
-    newEsp.user = req.user.id;
-    await newEsp.save();
-    req.flash('success_msg', 'Una Especialidad ha sido agregada');
-    res.redirect('/addEsp')
-};
-
-gestionCtrl.espToggleDone = async (req, res, next) => {
-    const espc = await Especialidad.findById(req.params.id);
-    espc.completed = !espc.completed;
-    await espc.save();
-    res.redirect("/addEsp");
-  };
-
-gestionCtrl.updateEsp = async (req, res) =>  {
-    console.log(req.body);
-    const { title, description } = req.body;
-    await Especialidad.findByIdAndUpdate(req.params.id, { title, description });
-    req.flash('success_msg', 'Una Especialidad ha sido Actualizada.');    
-    res.redirect('/addEsp');
-};
-
-gestionCtrl.deleteEsp = async (req, res) =>  {
-    await Especialidad.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Una Especialidad ha sido Eliminada.');
-    res.redirect('/addEsp')
-};
-
-// mostrar horarios
-gestionCtrl.renderHrc = async (req, res) => {
-    res.render('gestion/horarios');
-};
-
-// mostrar dias
-gestionCtrl.renderDia = async (req, res) => {
-    res.render('gestion/dias');
-};
-
-// mostrar doctores
-gestionCtrl.renderEmp = async (req, res) => {
-    const empleado = await Empleado.find().sort({createdAt: 'desc'});
-    res.render('gestion/doctores', { empleado });
-};
-
-gestionCtrl.createNewEmp = async (req, res) => {
-    const { cedula, nombres, apellidos, especialidad, telefono } = req.body;
-    const newEmp = new Empleado({cedula, nombres, apellidos, especialidad, telefono });
-    newEmp.user = req.user.id;
-    await newEmp.save();
-    req.flash('success_msg', 'Un empleado ha sido agregado');
-    res.redirect('/addEmpleado')
-};
-
-gestionCtrl.updateEmp = async (req, res) =>  {
-    const { cedula, nombres, apellidos, especialidad, telefono } = req.body;
-    await Empleado.findByIdAndUpdate(req.params.id, { cedula, nombres, apellidos, especialidad, telefono });
-    req.flash('success_msg', 'Un Empleado ha sido Actualizado.');    
-    res.redirect('/addEmpleado');
-};
-
-gestionCtrl.deleteEmp = async (req, res) =>  {
-    await Empleado.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Un Empleado ha sido Eliminado.');
-    res.redirect('/addEmpleado')
-};
-
-// mostrar agregar editar y eliminar citas 
-gestionCtrl.renderCit = async (req, res) => {
-    const cita = await Cita.find().sort({createdAt: 'desc'});
-    let Medicos = await Empleado.find({'especialidad': 'odontologia' }); 
-    res.render('gestion/citas', { cita, Medicos });
-};
-
-gestionCtrl.createNewCit = async (req, res) => {
-    const { cedula, medico, turno, fecha } = req.body;
-    const newCit = new Cita({cedula, medico, turno, fecha});
-    newCit.user = req.user.id;
-    await newCit.save();
-    req.flash('success_msg', 'Una Cita ha sido agregada...');
-    res.redirect('/Cita')
-};
-
-gestionCtrl.updateCit = async (req, res) =>  {
-    const { cedula, medico, turno, fecha } = req.body;
-    await Cita.findByIdAndUpdate(req.params.id, { cedula, medico, turno, fecha });
-    req.flash('success_msg', 'Una Cita ha sido Actualizada...');    
-    res.redirect('/Cita');
-};
-
-gestionCtrl.deleteCit = async (req, res) =>  {
-    await Cita.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Una Cita ha sido Eliminada...');
-    res.redirect('/Cita')
-};
 
 module.exports = gestionCtrl;

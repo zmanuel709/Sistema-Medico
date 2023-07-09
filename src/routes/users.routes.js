@@ -3,7 +3,7 @@ const router = Router();
 
 const { renderSignUpForm, renderSignInForm, signup, signin, logout } = require('../controllers/users.controllers');
 
-router.get('/users/signup', renderSignUpForm);
+router.get('/admAcessForm', renderSignUpForm);
 
 router.post('/users/signup', signup);
 

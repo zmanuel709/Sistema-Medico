@@ -13,6 +13,7 @@
               <div class="form-group">
                 <label for="jefe">Seleccionar jefe de familia:</label>
                 <select class="form-control" name="jefe" id="jefe">
+                <option value="">--</option>
                   {{#each habitantesSinFamilia}}
                   <option value="{{_id}}">{{nombres}}</option>
                   {{/each}}

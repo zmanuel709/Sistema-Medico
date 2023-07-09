@@ -10,7 +10,7 @@ const {
     renderFamilias,
     verHab,
     deleteHab,
-    renderDia,
+    renderHabForm,
     renderReport,
     verFam,
     deleteFam,
@@ -20,25 +20,26 @@ const {
 //autenticacion de usuario
 const { isAuthenticated } = require('../helpers/auth')
 
-//habitantes /verHab/
-router.get('/addPaciente', isAuthenticated, renderHab);
+//habitantes 
+router.get('/habitante', isAuthenticated, renderHab);
 
 router.get('/verHab/:id', isAuthenticated, verHab); 
 
 router.delete('/eliminarHab/:id', isAuthenticated, deleteHab);
 
-router.delete('/eliminarFam/:id', isAuthenticated, deleteFam);
+router.post('/habitante', isAuthenticated, createNewHab);
 
+router.get('/habFom', isAuthenticated, renderHabForm);
+
+
+
+
+//famlias
+router.delete('/eliminarFam/:id', isAuthenticated, deleteFam);
 
 router.get('/verFamilia/:id', isAuthenticated, verFam); 
 
-
-
-
-router.post('/addPaciente', isAuthenticated, createNewHab);
-
-
-router.get('/Cita', isAuthenticated, renderFam);
+router.get('/famForm', isAuthenticated, renderFam);
 
 router.post('/addFamilia', isAuthenticated, createNewFamilia);
 
@@ -46,11 +47,8 @@ router.get('/Familias', isAuthenticated, renderFamilias);
 
 
 
-router.get('/addDias', isAuthenticated, renderDia);
-
-
+//reportes
 router.get('/report', isAuthenticated, renderReport);
-
 
 
 

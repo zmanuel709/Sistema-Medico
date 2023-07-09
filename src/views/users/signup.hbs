@@ -1,21 +1,11 @@
       <div class="row">
         <div class="col-md-8 mt-5 mx-auto">
           <div class="card bg-white text-dark">
-            <div class="card-header bg-danger text-white">
+            <div class="card-header bg-dark text-white">
               Registra una nueva cuenta
             </div>
             <div class="card-body">
               <form action="/users/signup" method="POST">
-                <div class="mb-3">
-                  <label for="name">Nombre:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="name"
-                    placeholder="Name"
-                    value="{{name}}"
-                  />
-                </div>
                 <div class="mb-3">
                   <label for="email">Email:</label>
                   <input
@@ -37,7 +27,7 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="confirm_password">Confirma tu contraseña:</label>
+                  <label for="confirm_password">Confirma contraseña:</label>
                   <input
                     type="password"
                     class="form-control"
@@ -46,13 +36,11 @@
                     value="{{confirm_password}}"
                   />
                 </div>
-                <button class="btn btn-danger btn-block">
-                  Registrase
+                <button class="btn btn-dark btn-block">
+                  Registra
                 </button>
               </form>
             </div>
-            <p class="text-center text-dark">Ya tienes una cuenta?
-              <a href="/users/signin" class="text-info text-danger">Inicia</a></p>
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ usersCtrl.signup = async (req, res) => {
         const emailUser = await Users.findOne({email: email});
         if (emailUser) {
             req.flash('error_msg', 'El Email ya esta en uso');
-            res.redirect('/users/signup');
+            res.redirect('/admAcessForm');
         } else {
             const newUSer = new Users({name, email, password});
             newUSer.password = await newUSer.encryptPassword(password);
@@ -46,7 +46,7 @@ usersCtrl.renderSignInForm = (req, res) => {
 
 usersCtrl.signin = passport.authenticate('local', {
     failureRedirect: '/users/signin',
-    successRedirect: '/addPaciente',
+    successRedirect: '/habitante',
     failureFlash: true
 });
 
