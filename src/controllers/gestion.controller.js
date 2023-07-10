@@ -13,7 +13,7 @@ gestionCtrl.renderHab = async (req, res) => {
     res.render('gestion/habitantes', { habitante});
 };
 
-// mostrar dias
+// mostrar tabla habitantes 
 gestionCtrl.renderHabForm = async (req, res) => {
     res.render('gestion/habForm');
 };
@@ -281,7 +281,24 @@ gestionCtrl.renderReport = async (req, res) =>{
 
     const totalF = await Habitante.countDocuments({sexo: 'F'});
 
-    res.render('ver/reportes', {totalHab, totalFam, totalCasas, totalM, totalF});
+    //calcular numero de niños, adolescentes, adultos y mayores 
+
+    const totalNiños = await Habitante.countDocuments({ edad: { $lt: 12 } });
+    const totalAdo = await Habitante.countDocuments({ edad: { $gte: 12, $lte: 18 } });
+    const totalAdultos = await Habitante.countDocuments({ edad: { $gte: 18, $lte: 60 } });
+    const totalMayores = await Habitante.countDocuments({ edad: { $gt: 60 } });
+
+    res.render('ver/reportes', {
+        totalHab,
+        totalFam,
+        totalCasas,
+        totalM,
+        totalF,
+        totalNiños,
+        totalAdo,
+        totalAdultos,
+        totalMayores
+    });
 };
 
 

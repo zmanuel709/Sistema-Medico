@@ -22,7 +22,7 @@ const habitanteSchema = new Schema({
     required: true
   },
   edad: {
-    type: String,
+    type: Number,
     required: true
   },
   familia: {

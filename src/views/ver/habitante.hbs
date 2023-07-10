@@ -65,14 +65,14 @@
                                         </div>
                                     </div>
                                     
-                                        <div class="form-actions form-group">
-                                            <a href="/addPaciente" class="btn btn-primary">Regresar</a>
+                                        <div class="form-actions form-group block">
+                                            <a href="/habitante" class="btn btn-primary btn-block">Regresar</a>
                                         </div>
 
-                                        <div class="form-actions form-group">
+                                        <div class="form-actions form-group block">
                                             <form action="/editarHab/{{habitante._id}}?_method=PUT" method="POST">
                                         <input type="hidden" name="_method" value="PUT">
-                                        <button class="btn btn-info btn-blok" disabled>
+                                        <button class="btn btn-info btn-block" disabled>
                                             Editar
                                         </button>
                                         </form>
@@ -82,7 +82,7 @@
                                         <div class="form-actions form-group">
                                             <form action="/eliminarHab/{{habitante._id}}?_method=DELETE" method="POST">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button class="btn btn-danger">
+                                            <button class="btn btn-danger btn-block">
                                                 <i class="fa fa-trash"></i>Eliminar
                                             </button>
                                         </form>
