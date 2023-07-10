@@ -66,14 +66,16 @@
                                     </div>
                                     
                                         <div class="form-actions form-group block">
-                                            <a href="/habitante" class="btn btn-primary btn-block">Regresar</a>
+                                            <a href="/habitante" class="btn btn-primary btn-block">
+                                            <i class="menu-icon fa fa-reply"></i> Regresar
+                                            </a>
                                         </div>
 
                                         <div class="form-actions form-group block">
-                                            <form action="/editarHab/{{habitante._id}}?_method=PUT" method="POST">
+                                            <form action="/editHabForm/{{habitante._id}}?_method=PUT" method="POST">
                                         <input type="hidden" name="_method" value="PUT">
-                                        <button class="btn btn-info btn-block" disabled>
-                                            Editar
+                                        <button class="btn btn-warning btn-block">
+                                            <i class="menu-icon fa fa-edit"></i> Editar
                                         </button>
                                         </form>
                                         </div>
@@ -83,7 +85,7 @@
                                             <form action="/eliminarHab/{{habitante._id}}?_method=DELETE" method="POST">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button class="btn btn-danger btn-block">
-                                                <i class="fa fa-trash"></i>Eliminar
+                                                <i class="fa fa-trash"></i> Eliminar
                                             </button>
                                         </form>
                                         </div>                             

@@ -14,6 +14,8 @@ const {
     renderReport,
     verFam,
     deleteFam,
+    renderEditHab,
+    editHab,
   
 } = require('../controllers/gestion.controller');
 
@@ -30,6 +32,11 @@ router.delete('/eliminarHab/:id', isAuthenticated, deleteHab);
 router.post('/habitante', isAuthenticated, createNewHab);
 
 router.get('/habFom', isAuthenticated, renderHabForm);
+
+router.put('/editHabForm/:id', isAuthenticated, renderEditHab);
+
+router.put('/editHab/:id', isAuthenticated, editHab);
+
 
 
 

@@ -19,6 +19,57 @@ gestionCtrl.renderHabForm = async (req, res) => {
 };
 
  
+//editar habitante
+gestionCtrl.editHab = async (req, res) => {
+    const { nombres, cedula, fn, codigoC, sexo } = req.body;
+
+    //verificar que esten todos los datos
+    if (!nombres || !cedula || !fn || !codigoC || !sexo) {
+        req.flash('error_msg', 'Faltan Campos obligatorios');
+        return res.redirect('/habFom');
+    }
+
+    //validar cedula
+    const cedulaVeri = req.body.cedula;
+    const cedulaRegex = /^\d+$/;
+    if (!cedulaRegex.test(cedulaVeri)) {
+        req.flash('error_msg', 'el formato de la cedula es invalido');
+        return res.redirect('/habFom');
+    }
+
+    //validar el formato de la fecha
+    const fechaNacimientoVeri = req.body.fn;
+    const fechaRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!fechaRegex.test(fechaNacimientoVeri)) {
+        req.flash('error_msg', 'el formato de la fecha de nacimiento es incorrecto');
+        return res.redirect('/habFom') 
+    }
+
+    //calcular edad 
+    const fechaNacimiento = req.body.fn; //extraer nacimiento
+    const fechaActual = new Date(); //extraer fecha
+    const partesFechaNacimiento = fechaNacimiento.split('/'); //dividir fecha
+
+    const diaNacimiento = parseInt(partesFechaNacimiento[0], 10);
+    const mesNacimiento = parseInt(partesFechaNacimiento[1], 10);
+    const anioNacimiento = parseInt(partesFechaNacimiento[2], 10);
+
+    var edad = fechaActual.getFullYear() - anioNacimiento; 
+
+    //verificar si ya cumlio años
+    if (
+        fechaActual.getMonth() < mesNacimiento - 1 || 
+        (fechaActual.getMonth() === mesNacimiento - 1 && fechaActual.getDate() < diaNacimiento)
+    ) {
+        edad = edad - 1;
+    }
+
+    //actualizar lo datos de habitante
+    await Habitante.findByIdAndUpdate(req.params.id, { nombres, cedula, fn, codigoC, sexo, edad });
+    req.flash('success_msg', 'un habitante a sido actualizado');
+    res.redirect('/habitante');
+};
+
 
 //crear nuevo habitante
 gestionCtrl.createNewHab = async (req, res) => {
@@ -198,14 +249,8 @@ gestionCtrl.verHab = async (req, res) => {
 
 //ver familia
 gestionCtrl.verFam = async (req, res) => {
-
     const codigoFamilia = req.params.id;
-
-
     const familia = await Familia.findOne({ codigo: codigoFamilia }).populate('habitantes');
-
-    // console.log(familia);
-
     res.render('ver/familia', { familia });
 };
 
@@ -255,6 +300,14 @@ gestionCtrl.deleteFam = async (req, res) => {
     res.redirect('/Familias')
 };
 
+//render edit form
+gestionCtrl.renderEditHab = async (req, res) => {
+    const habitante = await Habitante.findById(req.params.id);
+    res.render('gestion/editHab', { habitante });
+};
+
+
+
 
 
 
@@ -275,8 +328,6 @@ gestionCtrl.renderReport = async (req, res) =>{
     });
     const totalCasas = casaUnicas.size;
 
-    // const totalCasas = await Familia.distinct('casa').countDocuments();
-    
     const totalM = await Habitante.countDocuments({sexo: 'M'});
 
     const totalF = await Habitante.countDocuments({sexo: 'F'});
@@ -300,13 +351,5 @@ gestionCtrl.renderReport = async (req, res) =>{
         totalMayores
     });
 };
-
-
-
-
-
-
-
-
 
 module.exports = gestionCtrl;
