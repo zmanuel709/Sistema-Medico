@@ -1,0 +1,54 @@
+<div class="content">
+  <div class="animated fadeIn">
+
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header"><strong>Familias</strong><small> Formulario</small></div>
+          <div class="card-body card-block">
+
+            <form action="/addFamilia" method="POST">
+              <div class="form-group">
+                <label for="jefe">Seleccionar jefe de familia:</label>
+                <select class="form-control" name="jefe" id="jefe">
+                <option value="">--</option>
+                  {{#each habitantesSinFamilia}}
+                  <option value="{{_id}}">{{nombres}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+              <div class="row form-group">
+                <div class="col col-md-6"><label class=" form-control-label">Seleccionar miembros de la familia:</label>
+                </div>
+                <div class="col col-md-6">
+                  <div class="form-check">
+
+                    {{#each habitantesSinFamilia}}
+                    <div class="checkbox">
+                      <label for="miembros" class="form-check-label ">
+                        <input type="checkbox" id="miembros" name="miembros" value="{{_id}}"
+                          class="form-check-input">{{nombres}}
+                      </label>
+                    </div>
+                    {{/each}}
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="vat" class=" form-control-label">Nro de Casa</label>
+                <input type="text" name="casa" placeholder="ingresa el numero de casa" class="form-control">
+              </div>
+
+              <button class="btn btn-primary btn-block" type="submit">Crear familia</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

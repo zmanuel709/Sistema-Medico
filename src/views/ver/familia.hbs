@@ -1,0 +1,62 @@
+<div class="content">
+            <div class="animated fadeIn">
+
+
+                <div class="row justify-content-center">
+                   
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header"><strong>Familia</strong><small> Datos</small></div>
+                            <div class="card-body card-block">
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">codigo: </label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{familia.codigo}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">nombre del jefe familiar: </label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{familia.nombre}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Codigo de casa: </label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{familia.casa}}</p>
+                                        </div>
+                                    </div>
+                              
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">habitantes: </label></div>
+                                        <div class="col-12 col-md-6">
+                                            {{#each familia.habitantes}}
+                                             <p class="form-control-static">{{nombres}}</p>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        <div class="form-actions form-group">
+                                            <a href="/Familias" class="btn btn-primary">Regresar</a>
+                                        </div>
+
+                                        
+
+
+                                        <div class="form-actions form-group">
+                                            <form action="/eliminarFam/{{familia._id}}?_method=DELETE" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button class="btn btn-danger">
+                                                <i class="fa fa-trash"></i>Eliminar
+                                            </button>
+                                        </form>
+                                        </div>                             
+                                        
+                             
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div><!-- .contenido -->

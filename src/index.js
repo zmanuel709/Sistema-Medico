@@ -5,5 +5,5 @@ require('./database.js');
 
 
 app.listen(app.get('port'), () => {
-    console.log('servidor funcionando en el puerto:', app.get('port'));
+    console.log('server on port:', app.get('port'));
 })

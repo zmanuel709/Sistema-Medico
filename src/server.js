@@ -3,20 +3,16 @@ const exphbs = require('express-handlebars');
 const req = require('express/lib/request');
 const path = require('path');
 const morgan = require('morgan');
-
-const createRoles = require('./libs/initialSetup');
-
 const methodOverride = require('method-override'); 
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-//inicializadores
+//inicializaciones
 const app = express();
-createRoles();
 require('./config/passport');
 
-//configuraciones del servidor
+//settings
 app.set('port', process.env.PORT || 5500);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
@@ -28,7 +24,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // middlwares
-// app.use(morgan('dev')); este es para ver la peticiones que envian al sevidor en la consola
+// app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
@@ -50,12 +46,12 @@ app.use((req, res, next) => {
     next();
 });
 
-//rutas del servidor
+//rutas
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/users.routes'));
 app.use(require('./routes/gestion.routes'));
 
-//archivos estaticos a los que el navegador puede acceder
+//archivos estaticos
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;

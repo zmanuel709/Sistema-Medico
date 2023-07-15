@@ -1,5 +1,5 @@
 {
-  "name": "citas",
+  "name": "crud2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,22 +8,21 @@
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "manuel zambrano",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "handlebars": "^4.5.0",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
-    "handlebars": "^4.5.0",
-    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.8.11",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",

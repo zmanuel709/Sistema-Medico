@@ -1,75 +1,46 @@
-<!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-   <!-- end loader -->
-
-<!-- Start wrapper-->
- <div id="wrapper">
-
-	<div class="card card-authentication1 mx-auto my-4">
-		<div class="card-body">
-		 <div class="card-content p-2">
-		 	<div class="text-center">
-		 		<img src="/assets/images/logo-icon.png" alt="logo icon">
-		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">Registrate</div>
-		    <form action="/users/signup" method="post">
-			  <div class="form-group">
-			  <label for="exampleInputName" class="sr-only">Nombre</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputName" value="{{name}}" class="form-control input-shadow" name="name" placeholder="Ingresa tu nombre">
-				  <div class="form-control-position">
-					  <i class="icon-user"></i>
-				  </div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			  <label for="exampleInputEmailId" class="sr-only">Correo</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputEmailId" value="{{email}}" name="email" class="form-control input-shadow" placeholder="Ingresa tu correo">
-				  <div class="form-control-position">
-					  <i class="icon-envelope-open"></i>
-				  </div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			   <label for="exampleInputPassword" class="sr-only">Contraseña</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputPassword" value="{{password}}" name="password" class="form-control input-shadow" placeholder="ingresa tu Contraseña">
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-			   </div>
-			  </div>
-        <div class="form-group">
-          <label for="exampleInputPassword" class="sr-only">Confirma tu Contraseña</label>
-          <div class="position-relative has-icon-right">
-           <input type="text" id="exampleInputPassword" value="{{confirm_password}}" name="confirm_password" class="form-control input-shadow" placeholder="Confirma tu Contraseña">
-           <div class="form-control-position">
-             <i class="icon-lock"></i>
-           </div>
+      <div class="row">
+        <div class="col-md-8 mt-5 mx-auto">
+          <div class="card bg-white text-dark">
+            <div class="card-header bg-dark text-white">
+              Registra una nueva cuenta
+            </div>
+            <div class="card-body">
+              <form action="/users/signup" method="POST">
+                <div class="mb-3">
+                  <label for="email">Email:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Email"
+                    value="{{email}}"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="Password"
+                    value="{{password}}"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="confirm_password">Confirma contraseña:</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    value="{{confirm_password}}"
+                  />
+                </div>
+                <button class="btn btn-dark btn-block">
+                  Registra
+                </button>
+              </form>
+            </div>
           </div>
-         </div>
-
-         <div class="form-group">
-          <label for="exampleInputName" class="sr-only">Tipo de Usuario</label>
-           <div class="position-relative has-icon-right">
-             <select name="roles" id="exampleInputName" class="form-control input-shadow" aria-placeholder="seleciona">
-              <option>Tipo de usuario</option>
-              <option>Paciente</option>
-              <option>Medico</option>
-              <option>Administrador</option>
-             </select>
-           </div>
-          </div>
-			  
-			  
-			 <button type="submit" class="btn btn-light btn-block waves-effect waves-light">Registrate</button>
-			 
-			
-			 </form>
-		   </div>
-		  </div>
-		  <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Ya tienes una cuenta? <a href="/"> Inicia aquí</a></p>
-		  </div>
-	     </div>
+        </div>
+      </div>

@@ -1,0 +1,66 @@
+ <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Tabla de Familias</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Jefe</th>
+                                            <th>Total miembros</th>
+                                            <th>Nro Casa</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                      <!-- El contenido de la tabla sera generado por el codigo JavaSvrip aqui-->
+                                      {{#each familias}}
+                                        <tr>
+                                        <td>{{codigo}}</td>
+                                        <td>{{nombre}}</td>
+                                        <td>{{totalHabitantes}}</td>
+                                        <td>{{casa}}</td>
+                                        <!-- ver mas -->
+                                        <td class="text-center">
+                                          <a class="btn btn-success" href="/verFamilia/{{codigo}}">ver mas</a>
+                                        </td>
+                                      {{/each}}
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div><!-- .contenido -->
+
+        <!-- panel inferior -->
+        <div class="clearfix"></div>
+
+          <footer class="site-footer">
+              <div class="footer-inner bg-white">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          Copyright &copy; 2023 UNEFA
+                      </div>
+                      <div class="col-sm-6 text-right">
+                          Diseñado por <a href="">estudiantes de servicio comunitario</a>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+
+           </div><!-- /#right-panel -->
+        <!-- /panel inferior-->
+
+

@@ -1,364 +1,61 @@
-{{#if roleMedico}}
-<!-- Start wrapper-->
- <div id="wrapper">
- 
-  <!--Start barra lateral-wrapper-->
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Cadena de Favores</h5>
-     </a>
-   </div>
-   <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">Navegacion de Medico</li>
-     
+{{#if user}}
+<!-- panel lateral -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
 
-      <li>
-        <a href="/addEmpleado">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Medicos</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/addPaciente">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Pacientes</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/addEsp">
-          <i class="zmdi zmdi-grid"></i> <span>Especialidades</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/Cita">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Citas</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
-
-      <li>
-        <a href="/perfil">
-          <i class="zmdi zmdi-face"></i> <span>perfil</span>
-        </a>
-      </li>
-
-
-    </ul>
-   
-   </div>
-   <!--FIn barra lateral-wrapper-->
-
-<!--Startencabezado de la barra superior-->
-<header class="topbar-nav">
- <nav class="navbar navbar-expand fixed-top">
-  <ul class="navbar-nav mr-auto align-items-center">
-    <li class="nav-item">
-      <a class="nav-link toggle-menu" href="javascript:void();">
-       <i class="icon-menu menu-icon"></i>
-     </a>
-    </li>
-    <li class="nav-item">
-      <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Buscar por clave">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-      </form>
-    </li>
-  </ul>
-     
-  <ul class="navbar-nav align-items-center right-nav-link">
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
-    </li>
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
-    </li>
-    <li class="nav-item language">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
-      <ul class="dropdown-menu dropdown-menu-right">
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
-        </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="/img/avatar.jpg" class="img-circle" alt="user avatar"></span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li class="dropdown-item user-details">
-        <a href="/perfil">
-           <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="/img/avatar.jpg" alt="user avatar"></div>
-            <div class="media-body">
-            <h6 class="mt-2 user-title">{{user.name}}</h6>
-            <p class="user-subtitle">{{user.email}}</p>
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/habFom"><i class="menu-icon fa fa-laptop"></i>Registrar habitantes</a>
+                    </li>
+                    <li>
+                        <a href="/famForm"><i class="menu-icon fa fa-group"></i>Registrar Familias</a>
+                    </li>
+                    <li>
+                        <a href="/habitante"><i class="menu-icon fa fa-table"></i>Tablas habitantes</a>
+                    </li>
+                    <li>
+                        <a href="/Familias"><i class="menu-icon fa fa-home"></i>Tablas Familias</a>
+                    </li>
+                    <li>
+                        <a href="/report"><i class="menu-icon fa fa-bar-chart"></i>Reportes</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="menu-icon fa fa-area-chart"></i>Mapa de la Comunidad</a>
+                    </li>
+                </ul>
             </div>
-           </div>
-          </a>
-        </li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Mensajes</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera   22.00$$</a></li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Seguridad</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> <a href="/users/logout">Cerrar sesion</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-</header>
-{{/if}}
+        </nav>
+    </aside><!-- /#left-panel -->
 
-{{#if rolePac}}
-<!-- Start wrapper-->
- <div id="wrapper">
- 
-  <!--Start barra lateral-wrapper-->
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Cadena de Favores</h5>
-     </a>
-   </div>
-   <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">Navegacion de Pacientes</li>
-      
-      <li>
-        <a href="/addEmpleado">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Medicos</span>
-        </a>
-      </li>
+    <!-- panel lateral -->
 
-      
-      <li>
-        <a href="/addEsp">
-          <i class="zmdi zmdi-grid"></i> <span>Especialidades</span>
-        </a>
-      </li>
+    <!-- panel superior -->
 
-      <li>
-        <a href="/Cita">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Citas</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
+    <div id="right-panel" class="right-panel">
 
-      <li>
-        <a href="/perfil">
-          <i class="zmdi zmdi-face"></i> <span>perfil</span>
-        </a>
-      </li>
-
-    </ul>
-   
-   </div>
-   <!--End barra lateral-wrapper-->
-
-<!--Start encabezado de la barra superior-->
-<header class="topbar-nav">
- <nav class="navbar navbar-expand fixed-top">
-  <ul class="navbar-nav mr-auto align-items-center">
-    <li class="nav-item">
-      <a class="nav-link toggle-menu" href="javascript:void();">
-       <i class="icon-menu menu-icon"></i>
-     </a>
-    </li>
-    <li class="nav-item">
-      <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Buscar por clave">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-      </form>
-    </li>
-  </ul>
-     
-  <ul class="navbar-nav align-items-center right-nav-link">
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
-    </li>
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
-    </li>
-    <li class="nav-item language">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
-      <ul class="dropdown-menu dropdown-menu-right">
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
-        </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="/img/avatar.jpg" class="img-circle" alt="user avatar"></span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li class="dropdown-item user-details">
-        <a href="/perfil">
-           <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="/img/avatar.jpg" alt="user avatar"></div>
-            <div class="media-body">
-            <h6 class="mt-2 user-title">{{user.name}}</h6>
-            <p class="user-subtitle">{{user.email}}</p>
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href=""><img src="/images/logo.png" alt="Logo"></a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                </div>
             </div>
-           </div>
-          </a>
-        </li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Mensajes</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera    22.00$$</a></li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Seguridad</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> <a href="/users/logout">Cerrar sesion</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-</header>
-{{/if}}
+            <div class="top-right">
+                <div class="header-menu">
+                    <div class="header-left">
+                        <div class="form-inline">
+                        </div>
+                    </div>
 
-{{#if roleAdm}}
-<!-- Start wrapper-->
- <div id="wrapper">
- 
-  <!--Start barra lateral-wrapper-->
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Cadena de Favores</h5>
-     </a>
-   </div>
-   <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">Navegacion de Administrador</li>
-      <li>
-        <a href="/reportes">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Reportes</span>
-        </a>
-      </li>
+                    <div class="user-area float-right">
 
-      <li>
-        <a href="/addEmpleado">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Medicos</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/addPaciente">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Pacientes</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/addEsp">
-          <i class="zmdi zmdi-grid"></i> <span>Especialidades</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/Cita">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Citas</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
-
-      <li>
-        <a href="/perfil">
-          <i class="zmdi zmdi-face"></i> <span>perfil</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/transacciones" >
-          <i class="zmdi zmdi-lock"></i> <span>Bitacora de Transacciones</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/acceso">
-          <i class="zmdi zmdi-lock"></i> <span>Bitacora de Acceso</span>
-        </a>
-      </li>
-
-    </ul>
-   
-   </div>
-   <!--End barra lateral-wrapper-->
-
-<!--Start encabezado de la barra superior-->
-<header class="topbar-nav">
- <nav class="navbar navbar-expand fixed-top">
-  <ul class="navbar-nav mr-auto align-items-center">
-    <li class="nav-item">
-      <a class="nav-link toggle-menu" href="javascript:void();">
-       <i class="icon-menu menu-icon"></i>
-     </a>
-    </li>
-    <li class="nav-item">
-      <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Buscar por clave">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-      </form>
-    </li>
-  </ul>
-     
-  <ul class="navbar-nav align-items-center right-nav-link">
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
-    </li>
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
-    </li>
-    <li class="nav-item language">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
-      <ul class="dropdown-menu dropdown-menu-right">
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
-          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
-        </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="/img/avatar.jpg" class="img-circle" alt="user avatar"></span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li class="dropdown-item user-details">
-        <a href="/perfil">
-           <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="/img/avatar.jpg" alt="user avatar"></div>
-            <div class="media-body">
-            <h6 class="mt-2 user-title">{{user.name}}</h6>
-            <p class="user-subtitle">{{user.email}}</p>
+                        <div class="">
+                            <a class="nav-link" href="/users/logout"><i class="fa fa-power-off"></i> Cerrar Sesion</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-           </div>
-          </a>
-        </li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Mensajes</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="/billetera">Billetera    22.00$</a></li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Seguridad</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> <a href="/users/logout">Cerrar sesion</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-</header>
+        </header>
 {{/if}}

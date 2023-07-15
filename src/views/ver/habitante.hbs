@@ -1,0 +1,99 @@
+<div class="content">
+            <div class="animated fadeIn">
+
+
+                <div class="row justify-content-center">
+                   
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header"><strong>Habitantes</strong><small> Datos</small></div>
+                            <div class="card-body card-block">
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Nombre y Apellido</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.nombres}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Cedula</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.cedula}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Fecha de Nacimiento</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.fn}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Edad</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.edad}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Nro de Casa</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.familia.casa}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Grupo Familiar</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.familia.codigo}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Familiares</label></div>
+                                        <div class="col-12 col-md-6">
+                                            {{#each familiares}}
+                                             <p class="form-control-static">{{nombres}}</p>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Sexo</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.sexo}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-6"><label class=" form-control-label">Codigo del Carnet de la patria</label></div>
+                                        <div class="col-12 col-md-6">
+                                            <p class="form-control-static">{{habitante.codigoC}}</p>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="form-actions form-group block">
+                                            <a href="/habitante" class="btn btn-primary btn-block">
+                                            <i class="menu-icon fa fa-reply"></i> Regresar
+                                            </a>
+                                        </div>
+
+                                        <div class="form-actions form-group block">
+                                            <form action="/editHabForm/{{habitante._id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <button class="btn btn-warning btn-block">
+                                            <i class="menu-icon fa fa-edit"></i> Editar
+                                        </button>
+                                        </form>
+                                        </div>
+
+
+                                        <div class="form-actions form-group">
+                                            <form action="/eliminarHab/{{habitante._id}}?_method=DELETE" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button class="btn btn-danger btn-block">
+                                                <i class="fa fa-trash"></i> Eliminar
+                                            </button>
+                                        </form>
+                                        </div>                             
+                                        
+                             
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div><!-- .contenido -->

@@ -1,0 +1,56 @@
+<div class="content">
+            <div class="animated fadeIn">
+
+
+                <div class="row justify-content-center">
+                   
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header"><strong>Habitantes</strong><small> Formulario</small></div>
+                            <div class="card-body card-block">
+                                <form action="/habitante" method="post">
+                                    <div class="form-group">
+                                        <label for="company" class=" form-control-label">Nombre Y Apellido</label>
+                                        <input type="text" name="nombres" placeholder="" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vat" class=" form-control-label">Cedula de Identidad</label>
+                                        <input type="text" name="cedula" placeholder="Ejemplo: 29152444" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cc-exp" class="control-label mb-1">Fecha de Naciomiento</label>
+                                        <input type="text" name="fn" class="form-control"  placeholder="DD/MM/AAAA">
+                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Codigo Carnet de la Patria</label>
+                                                <input type="text" name="codigoC" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-8">
+                                            <label for="select" class=" form-control-label">Sexo</label>
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <select name="sexo" class="form-control">
+                                                <option value="">--</option>
+                                                <option value="M">Masculino</option>
+                                                <option value="F">Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div><!-- .contenido -->
